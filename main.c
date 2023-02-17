@@ -6,18 +6,11 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/17 13:47:43 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:55:20 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/*
-	* 1:	Check num;
-	* 2:	Check duplicate;
-	* 3:	Change to int;
-	* 4:	Pass to the stack;
-	* 5:	Check limit of integer
-*/
 
 int	ft_isnum(char *num)
 {
