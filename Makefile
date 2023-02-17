@@ -6,12 +6,12 @@
 #    By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 14:06:30 by asepulve          #+#    #+#              #
-#    Updated: 2023/02/08 22:29:04 by asepulve         ###   ########.fr        #
+#    Updated: 2023/02/17 00:10:56 by asepulve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-#   5 numbers -> <12 moves
+#   5 numbers -> < 12 moves
 #   100 numbers:
 #       <700 moves = 5pts
 #       <900 numbers = 4pts

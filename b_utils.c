@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   b_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 14:13:59 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/17 11:15:41 by asepulve         ###   ########.fr       */
+/*   Created: 2023/02/17 11:03:36 by asepulve          #+#    #+#             */
+/*   Updated: 2023/02/17 11:18:02 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H 1
-
-# include "libft/libft.h"
-
-void	sa(t_list a);
-void	pa(t_list a);
-void	ra(t_list a);
-void	rra(t_list a);
-void	sb(t_list b);
-void	pb(t_list b);
-void	rb(t_list b);
-void	rrb(t_list b);
-void	ss(t_list a, t_list b);
-void	rr(t_list a, t_list b);
-void	rrr(t_list a, t_list b);
-#endif
+void	sb(t_list b)
+{
+	ft_printf("\n");
+}
+void	pb(t_list b)
+{
+	ft_printf("\n");
+}
+void	rb(t_list b)
+{
+	ft_printf("\n");
+}
+void	rrb(t_list b)
+{
+	ft_printf("\n");
+}

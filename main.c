@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/08 23:50:04 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/02/17 13:47:43 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,16 @@ t_list *converter(int argc, char *argv[])
 	return (stack);
 }
 
-int	check_limits(char **nums)
+int	check_limit(char *num)
 {
-	int	i;
-
-	i = 0;
-	while (nums[i])
-	{
-		if (nums[i][0] == '-' && ft_strlen(nums[i]) > 10 && ft_strncmp("-2147483648", nums[i], 12) < 0)
-			return (0);
-		else if ((ft_strlen(nums[i]) > 9 && ft_strncmp("2147483647", nums[i], 11) < 0) || (nums[i][0] != '-' && ft_strlen(nums[i]) > 10))
-			return (0);
-		i++;
-	}
+	if (ft_strlen(num) > 11)
+		return (0);
+	if (ft_strlen(num) <= 9)
+		return (1);
+	if (ft_strncmp("-2147483648", num, 12) <= 0)
+		return (0);
+	if (ft_strncmp("2147483647", num, 11) <= 0)
+		return (0);
 	return (1);
 }
 
@@ -78,11 +75,11 @@ int	validator(int argc, char *argv[])
 	int	j;
 
 	i = 1;
-	if (argc < 2 || !check_limits(&argv[1]))
+	if (argc < 2)
 		return (0);
 	while (i < argc)
 	{
-		if (!ft_isnum(argv[i]))
+		if (!ft_isnum(argv[i]) || !check_limit(argv[i]))
 			return (0);
 		j = i + 1;
 		while (j < argc)
@@ -96,6 +93,15 @@ int	validator(int argc, char *argv[])
 	return (1);
 }
 
+void print_list(t_list *head)
+{
+	while (head)
+	{
+		ft_printf("->%d \n", *(int *)head->content);
+		head = head->next;
+	}
+}
+
 int	main(int argc, char *argv[])
 {
 	t_list *a;
@@ -105,10 +111,6 @@ int	main(int argc, char *argv[])
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
-	while (a)
-	{
-		ft_printf("->%d \n", *(int *)a->content);
-		a = a->next;
-	}
+	print_list(a);
 	return (1);
 }
