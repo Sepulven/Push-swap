@@ -14,7 +14,7 @@
 
 
 // If I pass as a argument 01 and 1 it runs;
-// Validation to the correct moves
+// Validation to the correct moves -> check null cases
 
 int	ft_isnum(char *num)
 {
@@ -103,15 +103,21 @@ void print_list(t_list *head)
 int	main(int argc, char *argv[])
 {
 	t_list *a;
-	// t_list *b;
+	t_list *b;
 
+	a = NULL;
+	b = NULL;
 	if (!validator(argc, argv))
 		return (write(2, "Error1\n", 7));
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
 	print_list(a);
-	// pb(&a, &b);
-	// print_list(b);
+	pa(&a, &b);
+	pb(&a, &b);
+	print_list(b);
+	pb(&a, &b);
+	print_list(b);
+	print_list(a);
 	return (1);
 }

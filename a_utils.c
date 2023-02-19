@@ -26,6 +26,8 @@ void	sa(t_list **list)
 
 void	pa(t_list **a, t_list **b)
 {
+	if (!*b || !*a)
+		return ;
 	ft_lstadd_front(a, pop_head(b));
 	ft_printf("pa\n");
 }
