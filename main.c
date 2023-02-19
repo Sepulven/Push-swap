@@ -14,6 +14,7 @@
 
 
 // If I pass as a argument 01 and 1 it runs;
+// Validation to the correct moves
 
 int	ft_isnum(char *num)
 {
@@ -80,7 +81,7 @@ int	validator(int argc, char *argv[])
 		j = i + 1;
 		while (j < argc)
 		{
-			if (!ft_strncmp(argv[i], argv[j], 12))
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 				return (0);
 			j++;
 		}
@@ -93,24 +94,24 @@ void print_list(t_list *head)
 {
 	while (head)
 	{
-		ft_printf("->%d \n", *(int *)head->content);
+		ft_printf("->%d ", *(int *)head->content);
 		head = head->next;
 	}
+	ft_printf("\n");
 }
 
 int	main(int argc, char *argv[])
 {
 	t_list *a;
-	
+	// t_list *b;
+
 	if (!validator(argc, argv))
 		return (write(2, "Error1\n", 7));
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
-	ra(&a);
-	sa(&a);
-	rra(&a);
-
 	print_list(a);
+	// pb(&a, &b);
+	// print_list(b);
 	return (1);
 }

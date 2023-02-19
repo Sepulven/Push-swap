@@ -29,17 +29,17 @@ NAME 		= 	push_swap
 CC 			= 	cc
 CFLAGS 		= 	-Wall -Wextra -Werror
 RM 			= 	rm -f
-SRC			=	main.c a_utils.c
+SRC			=	main.c a_utils.c ab_utils.c b_utils.c
 OBJ		 	= 	${SRC:.c=.o}
 INCLUDES	=	libft/libft.a
 
 all:		${NAME}
 
 %.o: %.c
-			$(CC) $(CFLAGS) -c $^ -o $@
+			@$(CC) $(CFLAGS) -c $^ -o $@
 
 $(NAME): ${OBJ}
-			make -s -C libft
+			@make -s -C libft
 			@${CC} ${CFLAGS} ${OBJ} libft/libft.a -o ${NAME}
 
 clean:
