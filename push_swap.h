@@ -16,15 +16,20 @@
 
 # include "libft/libft.h"
 
-void	sa(t_list a);
-void	pa(t_list a);
-void	ra(t_list a);
-void	rra(t_list a);
-void	sb(t_list b);
-void	pb(t_list b);
-void	rb(t_list b);
-void	rrb(t_list b);
-void	ss(t_list a, t_list b);
-void	rr(t_list a, t_list b);
-void	rrr(t_list a, t_list b);
+void	sa(t_list **list);
+void	pa(t_list **a, t_list **b);
+void	ra(t_list **list);
+void	rra(t_list **list);
+
+void	sb(t_list **list);
+void	pb(t_list **a, t_list **b);
+void	rb(t_list **list);
+void	rrb(t_list **list);
+
+
+t_list	*pop_head(t_list **list);
+t_list  *pop_tail(t_list **list);
+void	rrr(t_list **a, t_list **b);
+void	rr(t_list **a, t_list **b);
+void	ss(t_list **a, t_list **b);
 #endif

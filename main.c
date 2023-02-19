@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
+
+// If I pass as a argument 01 and 1 it runs;
+
 int	ft_isnum(char *num)
 {
 	int	i;
@@ -104,6 +107,10 @@ int	main(int argc, char *argv[])
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
+	ra(&a);
+	sa(&a);
+	rra(&a);
+
 	print_list(a);
 	return (1);
 }

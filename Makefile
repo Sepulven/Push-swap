@@ -29,7 +29,7 @@ NAME 		= 	push_swap
 CC 			= 	cc
 CFLAGS 		= 	-Wall -Wextra -Werror
 RM 			= 	rm -f
-SRC			=	main.c
+SRC			=	main.c a_utils.c
 OBJ		 	= 	${SRC:.c=.o}
 INCLUDES	=	libft/libft.a
 

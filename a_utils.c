@@ -12,30 +12,32 @@
 
 #include "push_swap.h"
 
-
-void	sa(t_list **a)
+void	sa(t_list **list)
 {
-	t_list *tmp;
+	t_list *node1;
+	t_list *node2;
 
-	//save second node in tmp;
-	//first point to the third;
-	//second node point to first;
-	//the address of the head is overwritten;
-	tmp = *a->next;
-	*a->next = *a->next->next;
-	tmp->next = *a;
-	a = &tmp;
+	node1 = pop_head(list);
+	node2 = pop_head(list);
+	ft_lstadd_front(list, node1);
+	ft_lstadd_front(list, node2);
 	ft_printf("sa\n");
 }
-void	pa(t_list **a)
+
+void	pa(t_list **a, t_list **b)
 {
-	ft_printf("\n");
+	ft_lstadd_front(a, pop_head(b));
+	ft_printf("pa\n");
 }
-void	ra(t_list **a)
+
+void	ra(t_list **list)
 {
-	ft_printf("\n");
+	ft_lstadd_back(list, pop_head(list));
+	ft_printf("ra\n");
 }
-void	rra(t_list **a)
+
+void	rra(t_list **list)
 {
-	ft_printf("\n");
+	ft_lstadd_front(list, pop_tail(list));
+	ft_printf("rra\n");
 }
