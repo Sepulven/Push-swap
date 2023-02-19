@@ -113,11 +113,11 @@ int	main(int argc, char *argv[])
 	if (!a)
 		return (write(2, "Error2\n", 7));
 	print_list(a);
-	pa(&a, &b);
+	sa(&a);
+	// print_list(a);
+	// sa(&a);
+	// print_list(a);
 	pb(&a, &b);
 	print_list(b);
-	pb(&a, &b);
-	print_list(b);
-	print_list(a);
 	return (1);
 }

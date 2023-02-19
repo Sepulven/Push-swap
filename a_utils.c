@@ -19,6 +19,8 @@ void	sa(t_list **list)
 
 	node1 = pop_head(list);
 	node2 = pop_head(list);
+	if (!node2)
+		return ;
 	ft_lstadd_front(list, node1);
 	ft_lstadd_front(list, node2);
 	ft_printf("sa\n");
@@ -26,7 +28,7 @@ void	sa(t_list **list)
 
 void	pa(t_list **a, t_list **b)
 {
-	if (!*b || !*a)
+	if (!*b)
 		return ;
 	ft_lstadd_front(a, pop_head(b));
 	ft_printf("pa\n");
