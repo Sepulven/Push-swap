@@ -13,7 +13,7 @@
 #include "push_swap.h"
 
 
-// If I pass as a argument 01 and 1 it runs;
+// If I pass as a argument 01 and 1 it runs; Done
 // Validation to the correct moves -> check null cases
 
 int	ft_isnum(char *num)
@@ -112,12 +112,5 @@ int	main(int argc, char *argv[])
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
-	print_list(a);
-	sa(&a);
-	// print_list(a);
-	// sa(&a);
-	// print_list(a);
-	pb(&a, &b);
-	print_list(b);
 	return (1);
 }

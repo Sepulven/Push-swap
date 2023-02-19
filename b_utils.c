@@ -14,24 +14,34 @@
 
 void	sb(t_list **list)
 {
-	sa(list);
-	ft_printf("sa\n");
+	t_list *node1;
+	t_list *node2;
+
+	node1 = pop_head(list);
+	node2 = pop_head(list);
+	if (!node2)
+		return ;
+	ft_lstadd_front(list, node1);
+	ft_lstadd_front(list, node2);
+	ft_printf("sb\n");
 }
 
 void	pb(t_list **a, t_list **b)
 {
-	pa(b, a);
+	if (!*a)
+		return ;
+	ft_lstadd_front(b, pop_head(a));
 	ft_printf("pb\n");
 }
 
 void	rb(t_list **list)
 {
-	ra(list);
+	ft_lstadd_back(list, pop_head(list));
 	ft_printf("rb\n");
 }
 
 void	rrb(t_list **list)
 {
-	rra(list);
+	ft_lstadd_front(list, pop_tail(list));
 	ft_printf("rrb\n");
 }
