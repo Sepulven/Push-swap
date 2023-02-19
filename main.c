@@ -112,5 +112,9 @@ int	main(int argc, char *argv[])
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
+	pa(&a, &b);
+	pb(&a, &b);
+	pb(&a, &b);
+	pb(&a, &b);
 	return (1);
 }
