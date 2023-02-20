@@ -14,7 +14,10 @@
 
 
 // If I pass as a argument 01 and 1 it runs; Done
-// Validation to the correct moves -> check null cases
+// Validation to the correct moves -> check null cases; done
+// Create a simple algo that sort a stack of integers using 2 stacks;
+// create a simple algo that sort 3 integers under 2 moves;
+// create a simple algo that sort 5 integeers under 12 moves;
 
 int	ft_isnum(char *num)
 {
@@ -100,6 +103,67 @@ void print_list(t_list *head)
 	ft_printf("\n");
 }
 
+void sort_three_asc(t_list **list)
+{
+	t_list	*tmp;
+
+	tmp = *list;
+	if (*(int *)tmp->content < *(int *)tmp->next->content)
+		sa(list);
+
+	tmp = (*list)->next;
+	if (*(int *)tmp->content < *(int *)tmp->next->content)
+		rra(list);
+}
+
+void sort_three_des(t_list **list)
+{
+	t_list	*tmp;
+
+	tmp = *list;
+	if (*(int *)tmp->content > *(int *)tmp->next->content)
+		sa(list);
+
+	tmp = (*list)->next;
+	if (*(int *)tmp->content > *(int *)tmp->next->content)
+		rra(list);
+}
+
+void sort_five(t_list **a, t_list **b)
+{
+	(void)b;
+	(void)a;
+}
+
+void sort_temp(t_list **a, t_list **b)
+{
+	t_list	*temp;
+
+	while (ft_lstsize(*a) > 0)
+	{
+		temp = 
+		while (ft_lstsize(*b) > 0 && *(int *)(*b)->content > *(int *)temp->content)
+		{
+			pa(a, b);
+		}
+		pb(a, b);
+	}
+	
+	while (ft_lstsize(*a) > 0 && temp->next)
+	{
+		if (ft_lstsize(*b) == 0)
+		{	
+			pb(a, b);
+			temp = *a;
+		}
+		while (ft_lstsize(*b) > 1 && *(int *)(*b)->content > *(int *)temp->content)
+		{
+			pa(a, b);
+			temp = *a;
+		}
+	}
+}
+
 int	main(int argc, char *argv[])
 {
 	t_list *a;
@@ -107,14 +171,17 @@ int	main(int argc, char *argv[])
 
 	a = NULL;
 	b = NULL;
+	(void)b;
 	if (!validator(argc, argv))
 		return (write(2, "Error1\n", 7));
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
-	pa(&a, &b);
-	pb(&a, &b);
-	pb(&a, &b);
-	pb(&a, &b);
+	// sort_three_des(&a);
+	// print_list(a);
+	sort_temp(&a, &b);
+	// print_list(a);
+	// print_list(b);
+	// sort_five(&a, &b);
 	return (1);
 }
