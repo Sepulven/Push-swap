@@ -26,11 +26,19 @@ t_list *pop_tail(t_list **list)
 	t_list	*node;
 	t_list	*tmp;
 
-	tmp = (*list)->next;
+	if (!*list)
+		return (NULL);
+	if (!(*list)->next) {
+		node = *list;
+		*list = NULL;
+		return (node);
+	}
+	tmp = *list;
 	while (tmp->next->next)
 		tmp = tmp->next;
 	node = tmp->next;
 	tmp->next = NULL;
+	node->next = NULL;  // Ensure the returned node is properly terminated
 	return (node);
 }
 

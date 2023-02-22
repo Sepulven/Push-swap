@@ -36,12 +36,26 @@ void	pa(t_list **a, t_list **b)
 
 void	ra(t_list **list)
 {
-	ft_lstadd_back(list, pop_head(list));
+	t_list	*node;
+
+	if (ft_lstsize(*list) < 2)
+		return ;
+	node = pop_head(list);
+	if (!node)
+		return ;
+	ft_lstadd_back(list, node);
 	ft_printf("ra\n");
 }
 
 void	rra(t_list **list)
 {
-	ft_lstadd_front(list, pop_tail(list));
+	t_list	*node;
+
+	if (ft_lstsize(*list) < 2)
+		return ;
+	node = pop_tail(list);
+	if (!node)
+		return ;
+	ft_lstadd_front(list, node);
 	ft_printf("rra\n");
 }

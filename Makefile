@@ -6,7 +6,7 @@
 #    By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 14:06:30 by asepulve          #+#    #+#              #
-#    Updated: 2023/02/17 00:10:56 by asepulve         ###   ########.fr        #
+#    Updated: 2023/02/22 04:33:41 by asepulve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ NAME 		= 	push_swap
 CC 			= 	cc
 CFLAGS 		= 	-Wall -Wextra -Werror
 RM 			= 	rm -f
-SRC			=	main.c a_utils.c ab_utils.c b_utils.c
+SRC			=	main.c a_utils.c ab_utils.c b_utils.c utils.c validator.c
 OBJ		 	= 	${SRC:.c=.o}
 INCLUDES	=	libft/libft.a
 
@@ -46,6 +46,10 @@ clean:
 			@make clean -s -C libft
 			@${RM} ${OBJ}
 
+commit: fclean
+			git add .
+			git commit
+			git push
 fclean:		clean
 			@make fclean -s -C libft
 			@${RM} ${NAME}
