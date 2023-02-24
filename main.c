@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/22 04:24:39 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:04:12 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ void sort_temp(t_list **a, t_list **b)
 	
 }
 
+
+void	sort_five_asc(t_list **list)
+{
+	if ((*list)->next < (*list)->next->next)
+		return ;
+}
+
 int	main(int argc, char *argv[])
 {
 	t_list *a;
@@ -55,7 +62,7 @@ int	main(int argc, char *argv[])
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
-	sort_temp(&a, &b);
+	merge_tips(&a, &b);
 	ft_lstclear(&a, free);
 	ft_lstclear(&b, free);
 	return (1);
