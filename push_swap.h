@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:13:59 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/24 15:42:06 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/02/26 03:24:54 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ t_list	*converter(int argc, char *argv[]);
 int		check_limit(char *num);
 int		validator(int argc, char *argv[]);
 
-void	sort_three_des(t_list **list);
-void	sort_three_asc(t_list **list);
+void	sort_three_des(t_list **a, t_list **b);
+void	sort_three_asc(t_list **a, t_list **b);
 void	print_list(t_list *head);
-void	merge_tips(t_list **a, t_list **b);
+void	merge_tips(t_list **a, t_list **b, int l_tip, int r_tip);
 
 void	sa(t_list **list);
 void	pa(t_list **a, t_list **b);

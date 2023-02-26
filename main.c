@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/24 16:04:12 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/02/26 05:23:58 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,46 @@ void sort_temp(t_list **a, t_list **b)
 	
 }
 
+// Regardless of the size of the list I always want to pre sort everything;
 
-void	sort_five_asc(t_list **list)
+void	pre_sort_a_to_b(t_list **a, t_list **b, int size)
 {
-	if ((*list)->next < (*list)->next->next)
-		return ;
+	int tmp;
+
+	tmp = size;
+	while (ft_lstsize(*a) != 0)
+	{
+		if (tmp - 3 == 1)
+		{
+			sort_three_asc(a, b);
+			pb(a, b);
+			rb(b);
+			print_list(*b);
+			merge_tips(b, a, 3, 1);
+		}
+		else if (tmp - 3 == 2)
+		{
+			sort_three_asc(a, b);
+			if (*(int *)(*a)->content > *(int *)(*a)->next->content)
+				sa(a);
+			pb(a, b);
+			pb(a, b);
+			rb(b);
+			rb(b);
+			merge_tips(a, b, 3 , 2);
+		}
+		else if (tmp > (size / 2))
+			sort_three_des(a, b);
+		else
+			sort_three_asc(a, b);
+		tmp -= 3;
+	}
 }
+
+// void merge_all(t_list **a, t_list **b)
+// {
+	
+// }
 
 int	main(int argc, char *argv[])
 {
@@ -62,7 +96,11 @@ int	main(int argc, char *argv[])
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
-	merge_tips(&a, &b);
+	// pre_sort_a_to_b(&a, &b, argc - 1);
+	// print_list(a);
+	merge_tips(&a, &b, 1, 3);
+	print_list(a);
+	print_list(b);
 	ft_lstclear(&a, free);
 	ft_lstclear(&b, free);
 	return (1);

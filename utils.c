@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 03:52:51 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/24 16:58:02 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/02/26 05:11:55 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,55 +22,72 @@ void print_list(t_list *head)
 	ft_printf("\n");
 }
 
-void sort_three_des(t_list **list)
+void sort_three_des(t_list **a, t_list **b)
 {
 	t_list	*tmp;
 
-	tmp = *list;
+	tmp = *a;
 	if (*(int *)tmp->content < *(int *)tmp->next->content)
-		sa(list);
-	tmp = (*list)->next;
-	if (*(int *)tmp->content < *(int *)tmp->next->content)
-		rra(list);
+		sa(a);
+	tmp = (*a)->next;
+	pb(a, b);
+	if (*(int *)(*a)->content < *(int *)(*a)->next->content)
+		sa(a);
+	pb(a, b);
+	if (*(int *)(*b)->content > *(int *)(*b)->next->content)
+		sb(b);
+	pb(a, b);
 }
 
-void sort_three_asc(t_list **list)
+void sort_three_asc(t_list **a, t_list **b)
 {
 	t_list	*tmp;
 
-	tmp = *list;
+	tmp = *a;
 	if (*(int *)tmp->content > *(int *)tmp->next->content)
-		sa(list);
-	tmp = (*list)->next;
-	if (*(int *)tmp->content > *(int *)tmp->next->content)
-		rra(list);
+		sa(a);
+	tmp = (*a)->next;
+	pb(a, b);
+	if (*(int *)(*a)->content > *(int *)(*a)->next->content)
+		sa(a);
+	pb(a, b);
+	if (*(int *)(*b)->content < *(int *)(*b)->next->content)
+		sb(b);
+	pb(a, b);
 }
 
-void	merge_tips(t_list **a, t_list **b)
+// Merge tips regardless of the tips size; done 
+// Merge tips regardless of the middle of the list; done
+// TODO: To optimaze the code I need to pass a struct with the tips size and supposed functions;
+// So I can make it asc or des
+void	merge_tips(t_list **a, t_list **b, int l_tip, int r_tip)
 {
 	t_list	*node;
-	int		i;
 
-	i =  ft_lstsize(*a);
-	while(i > 0)
+	while(l_tip > 0 || r_tip > 0)
 	{
 		node = ft_lstlast(*a);
-		if (i == 1)
-		{
-			pb(a, b);
-			print_list(*a);
-			print_list(*b);
-			return ;
-		}
-		if (*(int *)(*a)->content < *(int *)node->content)
+		if (l_tip == 0)
 		{
 			rra(a);
 			pb(a, b);
+			r_tip--;
 		}
-		else
+		else if (r_tip == 0)
 		{
 			pb(a, b);
+			l_tip--;
 		}
-		i--;
+		else if (l_tip > 0 && *(int *)(*a)->content > *(int *)node->content)
+		{
+			pb(a, b);
+			l_tip--;
+		}
+		else if (r_tip > 0)
+		{
+			rra(a);
+			pb(a, b);
+			r_tip--;
+		}
 	}
 }
