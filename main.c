@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/27 02:30:31 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:57:15 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ int	main(int argc, char *argv[])
 		return (write(2, "Error2\n", 7));
 	// ft_printf("argc: %d\n", argc - 1);
 	pre_sort_a_to_b(&a, &b, argc - 1);
-	merge_b_to_a_asc(&a, &b, 3, 3);
 	merge_all(&a, &b);
 	// merge_a_to_b_des(&a, &b, 3, 3);
 	// merge_b_to_a_asc(&a, &b, 6, 6);
