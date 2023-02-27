@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:03:36 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/17 11:18:02 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/02/26 16:05:54 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	rb(t_list **list)
 
 	if (ft_lstsize(*list) < 2)
 		return ;
-	node = pop_tail(list);
+	node = pop_head(list);
 	if (!node)
 		return ;
 	ft_lstadd_back(list, node);

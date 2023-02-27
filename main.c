@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/26 05:23:58 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/02/27 01:12:46 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,44 +21,28 @@
 // Validation to the correct moves -> check null cases; done
 // Create a simple algo that sort a stack of integers using 2 stacks; done
 // create a simple algo that sort 3 integers under 2 moves; done
-// Free the list;
-// Organize the code;
-// create a simple algo that sort 5 integeers under 12 moves;
+// Free the list; done
+// Organize the code; done
+// create a simple algo that sort 5 integeers under 12 moves
 
-void sort_temp(t_list **a, t_list **b)
-{
-	t_list	*temp;
+//TODO: Regardless of the size of the list I always want to pre sort everything; done
 
-	while (ft_lstsize(*a) > 0)
-	{
-		temp = *a;
-		ra(a);
-		while (ft_lstsize(*b) != 0 && *(int *)temp->content > *(int *)(*b)->content)
-		{
-			pa(a, b);
-		}
-		rra(a);
-		pb(a, b);
-	}
-	
-}
-
-// Regardless of the size of the list I always want to pre sort everything;
-
+//TODO: I must refactor this function
+//TODO: Merge tips des and asc done
 void	pre_sort_a_to_b(t_list **a, t_list **b, int size)
 {
 	int tmp;
 
 	tmp = size;
-	while (ft_lstsize(*a) != 0)
+	while (tmp > 0)
 	{
 		if (tmp - 3 == 1)
 		{
 			sort_three_asc(a, b);
 			pb(a, b);
 			rb(b);
-			print_list(*b);
-			merge_tips(b, a, 3, 1);
+			merge_b_to_a_asc(a, b, 3, 1);
+			tmp -= 4;
 		}
 		else if (tmp - 3 == 2)
 		{
@@ -67,22 +51,16 @@ void	pre_sort_a_to_b(t_list **a, t_list **b, int size)
 				sa(a);
 			pb(a, b);
 			pb(a, b);
-			rb(b);
-			rb(b);
-			merge_tips(a, b, 3 , 2);
+			merge_b_to_a_asc(a, b, 2, 3);
+			tmp -= 5;
 		}
-		else if (tmp > (size / 2))
+		else if (tmp > 0 && tmp > (size / 2))
 			sort_three_des(a, b);
-		else
+		else if (tmp > 0)
 			sort_three_asc(a, b);
 		tmp -= 3;
 	}
 }
-
-// void merge_all(t_list **a, t_list **b)
-// {
-	
-// }
 
 int	main(int argc, char *argv[])
 {
@@ -96,11 +74,10 @@ int	main(int argc, char *argv[])
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
-	// pre_sort_a_to_b(&a, &b, argc - 1);
-	// print_list(a);
-	merge_tips(&a, &b, 1, 3);
-	print_list(a);
-	print_list(b);
+	// ft_printf("argc: %d\n", argc - 1);
+	pre_sort_a_to_b(&a, &b, argc - 1);
+	merge_b_to_a_asc(&a, &b, 3, 3);
+	merge_b_to_a_asc(&a, &b, 3, 3);
 	ft_lstclear(&a, free);
 	ft_lstclear(&b, free);
 	return (1);

@@ -6,7 +6,7 @@
 #    By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 14:06:30 by asepulve          #+#    #+#              #
-#    Updated: 2023/02/22 04:33:41 by asepulve         ###   ########.fr        #
+#    Updated: 2023/02/27 00:26:26 by asepulve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,16 @@
 #       <10,000 moves = 2pts
 #       <11,500 moves = 1pts
 
+
+# 23 algs
+#	127 123 1233 991 8484 823823 7 -23141 -90 -1234 1212349 5667 324523 969678 3462459 -09 -7887 -9685 67431 974596 -0991 6771 459
 NAME 		= 	push_swap
 CC 			= 	cc
 CFLAGS 		= 	-Wall -Wextra -Werror
 RM 			= 	rm -f
-SRC			=	main.c a_utils.c ab_utils.c b_utils.c utils.c validator.c
+SRC			=	a_utils.c ab_utils.c b_utils.c utils.c\
+				merge.c merge_tips.c\
+				main.c validator.c sort_three.c
 OBJ		 	= 	${SRC:.c=.o}
 INCLUDES	=	libft/libft.a
 
