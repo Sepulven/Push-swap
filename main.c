@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/27 17:57:15 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/02/28 19:39:31 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,103 @@
 
 //TODO: I must refactor this function
 //TODO: Merge tips des and asc done
+
+typedef struct s_presort
+{
+	void (*sort_three_x)(t_list **, t_list **);
+	void (*sort_three_y)(t_list **, t_list **);
+	void (*merge)(t_list **, t_list **, int, int);
+	t_list	**a;
+	t_list	**b;
+	int *tmp;
+} t_presort;
+
+static void	manager(t_presort stats)
+{
+	if (*stats.tmp - 3 == 1)
+	{
+		stats.sort_three_x(stats.a, stats.b);
+		pb(stats.a, stats.b);
+		rb(stats.b);
+		stats.merge(stats.a, stats.b, 3, 1);
+		*stats.tmp -= 4;
+	}
+	else if (*stats.tmp - 3 == 2)
+	{
+		stats.sort_three_x(stats.a, stats.b);
+		if (*(int *)(*stats.a)->content > *(int *)(*stats.a)->next->content)
+			sa(stats.a);
+		pb(stats.a, stats.b);
+		pb(stats.a, stats.b);
+		stats.merge(stats.a, stats.b, 2, 3);
+		*stats.tmp -= 5;
+	}
+	else if (*stats.tmp > 0 && *stats.tmp%2 == 0)
+		stats.sort_three_y(stats.a, stats.b);
+	else if (*stats.tmp > 0)
+		stats.sort_three_x(stats.a, stats.b);
+	*stats.tmp -= 3;
+}
+
+//TODO: Create a map on how we want the the pre_sort_a_to_b
+//TODO: Create a function that joins a string in the middle;
+
+
+//It's always going to be either 10 or 110
+char	*ft_insert_substring(char *main, const char *sub, size_t index)
+{
+	size_t	i;
+	size_t	j;
+	char	*str;
+
+	if (!sub || index > ft_strlen(main) - 1)
+		return (NULL);
+	str = (char *)malloc(ft_strlen(main) + ft_strlen(sub) * sizeof(char) + 1);
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i < index)
+	{
+		str[i] = main[i];
+		i++;
+	}
+	j = 0;
+	while (sub[j])
+		str[i++] = sub[j++];
+	while (main[index])
+		str[i++] = main[index++];
+	str[i] = '\0';
+	free(main);
+	return (str);
+}
+// 0 -> decrescent
+// 1 -> crescent ex.: 111000 or 101000101
+char	*map_pre_sort(int size)
+{
+	char *map;
+	int		i;
+
+	map = (char *)malloc((size/3)* sizeof(char));
+	if (!map)
+		return (NULL);
+	i = (size/3);	
+	while (i > 0)
+	{
+		if (i == 1)
+		{
+			map = ft_insert_substring(map, "0", ft_strlen(map) / 2);
+			i--;
+		}
+		else if (i % 2 == 0)
+			map = ft_insert_substring(map, "01", ft_strlen(map) / 2);
+		else
+			map = ft_insert_substring(map, "10", ft_strlen(map) / 2);
+		i -= 2;
+	}
+	ft_printf("%s\n", map);
+	return (map);
+}
+
 void	pre_sort_a_to_b(t_list **a, t_list **b, int size)
 {
 	int tmp;
@@ -36,50 +133,39 @@ void	pre_sort_a_to_b(t_list **a, t_list **b, int size)
 	tmp = size;
 	while (tmp > 0)
 	{
-		if (tmp - 3 == 1)
-		{
-			sort_three_asc(a, b);
-			pb(a, b);
-			rb(b);
-			merge_b_to_a_asc(a, b, 3, 1);
-			tmp -= 4;
-		}
-		else if (tmp - 3 == 2)
-		{
-			sort_three_asc(a, b);
-			if (*(int *)(*a)->content > *(int *)(*a)->next->content)
-				sa(a);
-			pb(a, b);
-			pb(a, b);
-			merge_b_to_a_asc(a, b, 2, 3);
-			tmp -= 5;
-		}
-		else if (tmp > 0 && tmp%2 == 0)
-			sort_three_des(a, b);
-		else if (tmp > 0)
-			sort_three_asc(a, b);
-		tmp -= 3;
+		if ((size / 6)%2 == 0)
+			manager((t_presort){sort_three_des, sort_three_asc, merge_a_to_b_asc,a, b, &tmp});
+		else
+			manager((t_presort){sort_three_asc, sort_three_des, merge_a_to_b_asc,a, b, &tmp});
 	}
 }
 
 int	main(int argc, char *argv[])
 {
-	t_list *a;
-	t_list *b;
+	// t_list *a;
+	// t_list *b;
+	char	*str;
 
-	a = NULL;
-	b = NULL;
-	if (!validator(argc, argv))
-		return (write(2, "Error1\n", 7));
-	a = converter(argc, argv);
-	if (!a)
-		return (write(2, "Error2\n", 7));
-	// ft_printf("argc: %d\n", argc - 1);
-	pre_sort_a_to_b(&a, &b, argc - 1);
-	merge_all(&a, &b);
-	// merge_a_to_b_des(&a, &b, 3, 3);
-	// merge_b_to_a_asc(&a, &b, 6, 6);
-	ft_lstclear(&a, free);
-	ft_lstclear(&b, free);
+	(void)argc;
+	(void)argv;
+	str = (char *)malloc(11);
+	ft_strlcpy(str, "01", ft_strlen("01") + 1);
+	// a = NULL;
+	// b = NULL;
+	// if (!validator(argc, argv))
+	// 	return (write(2, "Error1\n", 7));
+	// a = converter(argc, argv);
+	// if (!a)
+	// 	return (write(2, "Error2\n", 7));
+	map_pre_sort(24);
+	map_pre_sort(21);
+	map_pre_sort(18);
+	map_pre_sort(15);
+	map_pre_sort(12);
+	map_pre_sort(9);
+	map_pre_sort(6);
+	map_pre_sort(3);
+	// ft_lstclear(&a, free);
+	// ft_lstclear(&b, free);
 	return (1);
 }

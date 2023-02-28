@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:13:59 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/27 01:07:33 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/02/27 18:20:07 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	sort_three_des(t_list **a, t_list **b);
 void	sort_three_asc(t_list **a, t_list **b);
 
 /*merge.c*/
+int		issorted(t_list **list);
 void	merge_all(t_list **a, t_list **b);
 
 /*merge_tips.c*/
