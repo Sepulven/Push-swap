@@ -6,28 +6,28 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:13:59 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/03 02:10:40 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/03 19:02:44 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H 1
+# define PUSH_SWAP_H 1
 
 # include "libft/libft.h"
 # include <time.h> //delete it
 
 typedef struct s_manager
 {
-	t_list **a;
-	t_list **b;
-	t_list *last;
-	int *l_tip;
-	int *r_tip; 
-	void (*rrx)(t_list **);
-	void (*px)(t_list **, t_list **);
-	char to;
-} t_manager;
+	t_list	**a;
+	t_list	**b;
+	t_list	*last;
+	int		*l_tip;
+	int		*r_tip;
+	void	(*rrx)(t_list **);
+	void	(*px)(t_list **, t_list **);
+	char	to;
+}	t_manager;
 
 /*main.c*/
 char	*ft_insert_substring(char *main, const char *sub, size_t index);
@@ -81,5 +81,5 @@ void	rrr(t_list **a, t_list **b);
 void	rr(t_list **a, t_list **b);
 void	ss(t_list **a, t_list **b);
 t_list	*pop_head(t_list **list);
-t_list  *pop_tail(t_list **list);
+t_list	*pop_tail(t_list **list);
 #endif

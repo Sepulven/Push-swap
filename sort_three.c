@@ -6,13 +6,13 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 00:14:49 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/27 00:17:58 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/03 19:03:07 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_three_des(t_list **a, t_list **b)
+void	sort_three_des(t_list **a, t_list **b)
 {
 	t_list	*tmp;
 
@@ -29,7 +29,7 @@ void sort_three_des(t_list **a, t_list **b)
 	pb(a, b);
 }
 
-void sort_three_asc(t_list **a, t_list **b)
+void	sort_three_asc(t_list **a, t_list **b)
 {
 	t_list	*tmp;
 

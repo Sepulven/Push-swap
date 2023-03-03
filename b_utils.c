@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:03:36 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/26 16:05:54 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/03 19:01:04 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	sb(t_list **list)
 {
-	t_list *node1;
-	t_list *node2;
+	t_list	*node1;
+	t_list	*node2;
 
 	node1 = pop_head(list);
 	node2 = pop_head(list);

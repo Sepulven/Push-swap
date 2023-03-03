@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 03:52:51 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/03 01:35:14 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/03 19:00:12 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,75 @@ void print_list(t_list *head)
 	ft_printf("\n");
 }
 
-void send_a_to_b(t_list **a, t_list **b)
+int	issorted(t_list **list)
+{
+	t_list	*tmp;
+
+	if (!*list)
+		return (0);
+	tmp = *list;
+	while (tmp->next)
+	{
+		if (*(int *)tmp->content > *(int *)tmp->next->content)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+// We know that if one tip is decresent the other ir crescent
+int	right_tip_size(t_list **list)
+{
+	t_list	*tmp;
+	int		size;
+	char	flag;
+
+	if (!*list)
+		return (0);
+	flag = 'c';
+	tmp = *list;
+	size = 1;
+	if (*(int *)tmp->content < *(int *)tmp->next->content)
+		flag = 'd';
+	while (tmp->next)
+	{
+		if (flag == 'c' && *(int *)tmp->content > *(int *)tmp->next->content)
+			size = 0;
+		else if (flag == 'd' && *(int *)tmp->content < *(int *)tmp->next->content)
+			size = 0;
+		else
+			size++;
+		tmp = tmp->next;
+	}
+	return (size);
+}
+
+int	left_tip_size(t_list **list)
+{
+	t_list	*tmp;
+	int		size;
+	char	flag;
+
+	if (!*list)
+		return (0);
+	flag = 'd';
+	tmp = *list;
+	size = 1;
+	if (*(int *)tmp->content < *(int *)tmp->next->content)
+		flag = 'c';
+	while (tmp->next)
+	{
+		if (flag == 'd' && *(int *)tmp->content < *(int *)tmp->next->content)
+			break ;
+		if (flag == 'c' && *(int *)tmp->content > *(int *)tmp->next->content)
+			break ;
+		size++;
+		tmp = tmp->next;
+	}
+	return (size);
+}
+
+void	send_a_to_b(t_list **a, t_list **b)
 {
 	int	i;
 

@@ -6,29 +6,32 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:03:40 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/17 11:13:34 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/03 19:24:29 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 #include "push_swap.h"
 
 t_list	*pop_head(t_list **list)
 {
 	t_list	*node;
-	
+
 	node = *list;
-	*list = (*list)->next; 
+	*list = (*list)->next;
 	node->next = NULL;
 	return (node);
 }
 
-t_list *pop_tail(t_list **list)
+t_list	*pop_tail(t_list **list)
 {
 	t_list	*node;
 	t_list	*tmp;
 
 	if (!*list)
 		return (NULL);
-	if (!(*list)->next) {
+	if (!(*list)->next)
+	{
 		node = *list;
 		*list = NULL;
 		return (node);
@@ -38,14 +41,14 @@ t_list *pop_tail(t_list **list)
 		tmp = tmp->next;
 	node = tmp->next;
 	tmp->next = NULL;
-	node->next = NULL;  // Ensure the returned node is properly terminated
+	node->next = NULL;
 	return (node);
 }
 
 void	ss(t_list **a, t_list **b)
 {
-	t_list *node1;
-	t_list *node2;
+	t_list	*node1;
+	t_list	*node2;
 
 	node1 = pop_head(a);
 	node2 = pop_head(a);
@@ -61,6 +64,7 @@ void	ss(t_list **a, t_list **b)
 	ft_lstadd_front(b, node2);
 	ft_printf("ss\n");
 }
+
 void	rr(t_list **a, t_list **b)
 {
 	if (*a)

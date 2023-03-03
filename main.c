@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/03 03:05:30 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/03 18:46:29 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,40 +32,13 @@
 
 typedef struct s_presort
 {
-	void (*sort_three_x)(t_list **, t_list **);
-	void (*sort_three_y)(t_list **, t_list **);
-	void (*merge)(t_list **, t_list **, int, int);
-	t_list	**a; 
+	void	(*sort_three_x)(t_list **, t_list **);
+	void	(*sort_three_y)(t_list **, t_list **);
+	void	(*merge)(t_list **, t_list **, int, int);
+	t_list	**a;
 	t_list	**b;
-	int *tmp;
-} t_presort;
-
-// static void	manager(t_presort stats)
-// {
-// 	if (*stats.tmp - 3 == 1)
-// 	{
-// 		stats.sort_three_x(stats.a, stats.b);
-// 		pb(stats.a, stats.b);
-// 		rb(stats.b);
-// 		stats.merge(stats.a, stats.b, 3, 1);
-// 		*stats.tmp -= 4;
-// 	}
-// 	else if (*stats.tmp - 3 == 2)
-// 	{
-// 		stats.sort_three_x(stats.a, stats.b);
-// 		if (*(int *)(*stats.a)->content > *(int *)(*stats.a)->next->content)
-// 			sa(stats.a);
-// 		pb(stats.a, stats.b);
-// 		pb(stats.a, stats.b);
-// 		stats.merge(stats.a, stats.b, 2, 3);
-// 		*stats.tmp -= 5;
-// 	}
-// 	else if (*stats.tmp > 0 && *stats.tmp%2 == 0)
-// 		stats.sort_three_y(stats.a, stats.b);
-// 	else if (*stats.tmp > 0)
-// 		stats.sort_three_x(stats.a, stats.b);
-// 	*stats.tmp -= 3;
-// }
+	int		*tmp;
+}	t_presort;
 
 //TODO: Create a map on how we want the the pre_sort_a_to_b; done
 //TODO: Create a function that joins a string in the middle; done
@@ -99,8 +72,8 @@ char	*ft_insert_substring(char *main, const char *sub, size_t index)
 
 int	main(int argc, char *argv[])
 {
-	t_list *a;
-	t_list *b;
+	t_list	*a;
+	t_list	*b;
 
 	(void)argv;
 	a = NULL;
