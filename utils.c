@@ -6,13 +6,13 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 03:52:51 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/03 19:00:12 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/03 19:39:43 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void print_list(t_list *head)
+void	print_list(t_list *head)
 {
 	while (head)
 	{

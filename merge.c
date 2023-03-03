@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 17:17:07 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/03 19:23:26 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/03 19:59:54 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,24 @@ int	merge_a(t_list **a, t_list **b, int triangles, int tips)
 		l_tip = left_tip_size(a);
 		if (l_tip >= tips)
 			l_tip = tips;
-		if (l_tip == 0)
-			return (0);
 		if (*(int *)(*a)->content < *(int *)(*a)->next->content)
 			merge_a_to_b_des(a, b, l_tip, r_tip);
 		else
 			merge_a_to_b_asc(a, b, l_tip, r_tip);
 		triangles -= 2;
 	}
-	if (triangles < 2 && triangles > 0)
+	if (triangles == 1)
 		send_a_to_b(a, b);
-	return (1);
+	return ((tmp / 2) + triangles);
 }
 
 int	merge_b(t_list **a, t_list **b, int triangles, int tips)
 {
 	int		l_tip;
 	int		r_tip;
+	int		tmp;
 
+	tmp = triangles;
 	while (triangles > 1)
 	{
 		r_tip = right_tip_size(b);
@@ -64,9 +64,9 @@ int	merge_b(t_list **a, t_list **b, int triangles, int tips)
 			merge_b_to_a_asc(a, b, l_tip, r_tip);
 		triangles -= 2;
 	}
-	if (triangles < 2 && triangles > 0)
+	if (triangles == 1)
 		send_b_to_a(a, b);
-	return (1);
+	return ((tmp / 2) + triangles);
 }
 
 void	merge_all(t_list **a, t_list **b)
@@ -77,12 +77,13 @@ void	merge_all(t_list **a, t_list **b)
 	tips = 3;
 	// Assuming it's multiples of three;
 	triangles = ft_lstsize(*b) / 3;
-	while (triangles != 1)
+
+	while (triangles > 1)
 	{
 		if (ft_lstsize(*b) != 0)
-			triangles = merge_a(a, b, triangles, tips);
-		else
 			triangles = merge_b(a, b, triangles, tips);
+		else
+			triangles = merge_a(a, b, triangles, tips);
 		tips += tips;
 	}
 }

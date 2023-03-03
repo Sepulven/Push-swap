@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/03 18:46:29 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/03 19:40:26 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct s_presort
 
 //TODO: Create a map on how we want the the pre_sort_a_to_b; done
 //TODO: Create a function that joins a string in the middle; done
+//TODO: I must refactor this function
+//TODO: Merge tips des and asc done
 
 char	*ft_insert_substring(char *main, const char *sub, size_t index)
 {
@@ -75,7 +77,6 @@ int	main(int argc, char *argv[])
 	t_list	*a;
 	t_list	*b;
 
-	(void)argv;
 	a = NULL;
 	b = NULL;
 	if (!validator(argc, argv))
@@ -83,7 +84,7 @@ int	main(int argc, char *argv[])
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
-	pre_sort_a_to_b(&a, &b, ft_lstsize(a));
+	pre_sort_a_to_b(&a, &b, argc);
 	merge_all(&a, &b);
 	// ft_printf("%d\n", left_tip_size(&a));
 	// ft_printf("%d\n", right_tip_size(&a));
