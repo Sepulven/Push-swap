@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:13:59 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/27 18:20:07 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/03 02:10:40 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ typedef struct s_manager
 	char to;
 } t_manager;
 
+/*main.c*/
+char	*ft_insert_substring(char *main, const char *sub, size_t index);
+
+/*sort.c*/
+char	*map_pre_sort(int size);
+void	pre_sort_a_to_b(t_list **a, t_list **b, int size);
+
+
 /*sort_three.c*/
 void	sort_three_des(t_list **a, t_list **b);
 void	sort_three_asc(t_list **a, t_list **b);
@@ -36,6 +44,8 @@ void	sort_three_asc(t_list **a, t_list **b);
 /*merge.c*/
 int		issorted(t_list **list);
 void	merge_all(t_list **a, t_list **b);
+int		right_tip_size(t_list **list);
+int		left_tip_size(t_list **list);
 
 /*merge_tips.c*/
 void	merge_a_to_b_asc(t_list **a, t_list **b, int l_tip, int r_tip);
@@ -51,6 +61,8 @@ int		validator(int argc, char *argv[]);
 
 /*utils.c*/
 void	print_list(t_list *head);
+void	send_a_to_b(t_list **a, t_list **b);
+void	send_b_to_a(t_list **a, t_list **b);
 
 /*a_utils.c*/
 void	sa(t_list **list);
