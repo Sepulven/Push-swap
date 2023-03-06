@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 16:16:19 by asepulve          #+#    #+#             */
-/*   Updated: 2023/02/27 01:10:27 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/06 14:58:13 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@
 //		I could compare the nodes instead of passing the list to it
 //		Basically create a new function
 
+// There is a problem with the merge in the 15 el. case;
+
 static	void	asc(t_manager manager)
 {
-	if ((*manager.r_tip > 0 && *(int *)(*manager.a)->content < *(int *)(manager.last)->content) 
-	|| *manager.l_tip == 0)
+	if ((*manager.r_tip > 0 && *(int *)(*manager.a)->content < *(int *)(manager.last)->content) || *manager.l_tip == 0)
 	{
 		manager.rrx(manager.a);
 		*manager.r_tip -= 1;
@@ -34,7 +35,7 @@ static	void	asc(t_manager manager)
 		*manager.l_tip -= 1;
 	if (manager.to == 'a')
 		manager.px(manager.b, manager.a);
-	else
+	else if (manager.to == 'b')
 		manager.px(manager.a, manager.b);
 }
 
@@ -50,7 +51,7 @@ static	void	des(t_manager manager)
 		*manager.l_tip -= 1;
 	if (manager.to == 'a')
 		manager.px(manager.b, manager.a);
-	else
+	else if (manager.to == 'b')
 		manager.px(manager.a, manager.b);
 }
 

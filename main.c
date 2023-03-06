@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/03 19:40:26 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:34:50 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,12 @@ char	*ft_insert_substring(char *main, const char *sub, size_t index)
 	return (str);
 }
 
+/*
+BUG while merging:
+merge_tips(3, 6); -> 15 13 8 1 4 5 6 10 14
+crash!!!
+*/
+
 int	main(int argc, char *argv[])
 {
 	t_list	*a;
@@ -83,12 +89,43 @@ int	main(int argc, char *argv[])
 		return (write(2, "Error1\n", 7));
 	a = converter(argc, argv);
 	if (!a)
-		return (write(2, "Error2\n", 7));
+		return (write(2, "Error2\n", 7));\
+
 	pre_sort_a_to_b(&a, &b, argc);
-	merge_all(&a, &b);
-	// ft_printf("%d\n", left_tip_size(&a));
-	// ft_printf("%d\n", right_tip_size(&a));
+	merge_b_to_a_asc(&a, &b, 3, 3);
+	merge_b_to_a_des(&a, &b, 3, 3);
+	send_b_to_a(&a, &b);
+	send_a_to_b(&a, &b);
+	merge_b_to_a_asc(&a, &b, 6, 3);
+	send_b_to_a(&a, &b);
+	merge_a_to_b_asc(&a, &b, 6, 9);
+
 	ft_lstclear(&a, free);
-	ft_lstclear(&b, free);
+	ft_lstclear(&a, free);
 	return (1);
 }
+
+/*
+	ft_printf("pre_sort_a_to_b\n");
+	pre_sort_a_to_b(&a, &b, argc);
+	print_list(a);
+	print_list(b);
+	ft_printf("merge all triangles\n");
+	merge_b_to_a_asc(&a, &b, 3, 3);
+	merge_b_to_a_des(&a, &b, 3, 3);
+	send_b_to_a(&a, &b);
+	print_list(a);10
+	ft_printf("merge all triangles\n");
+	merge_b_to_a_asc(&a, &b, 3, 6);
+	ft_printf("--------------------\n");
+	print_list(a);
+	print_list(b);
+	send_b_to_a(&a, &b);
+	print_list(a);
+	print_list(b);
+	ft_printf("final merge\n");
+	merge_a_to_b_asc(&a, &b, 6, 9);
+	print_list(a);
+	print_list(b);
+
+*/

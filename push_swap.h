@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:13:59 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/03 19:02:44 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/04 15:24:43 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,15 @@ typedef struct s_manager
 	void	(*px)(t_list **, t_list **);
 	char	to;
 }	t_manager;
+
+typedef	struct s_stats
+{
+	int		triangles;
+	int		tips;
+	int		diff;
+	char	side;
+} t_stats;
+
 
 /*main.c*/
 char	*ft_insert_substring(char *main, const char *sub, size_t index);

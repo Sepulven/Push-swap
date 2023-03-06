@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 23:44:17 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/03 19:33:40 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/04 22:51:23 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ char	*map_pre_sort(int size)
 	{
 		if (triangles == 1)
 		{
-			if (map[0] == 'c')
+			if (map[0] == 'd')
 				map = ft_insert_substring(map, "c", ft_strlen(map) / 2);
-			else if (map [0] == 'd')
+			else if (map [0] == 'c')
 				map = ft_insert_substring(map, "d", ft_strlen(map) / 2);
 			break ;
 		}
