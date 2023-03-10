@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/06 16:34:50 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:05:34 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,38 +45,6 @@ typedef struct s_presort
 //TODO: I must refactor this function
 //TODO: Merge tips des and asc done
 
-char	*ft_insert_substring(char *main, const char *sub, size_t index)
-{
-	size_t	i;
-	size_t	j;
-	char	*str;
-
-	if (!sub || index > ft_strlen(main) - 1)
-		return (NULL);
-	str = (char *)malloc(ft_strlen(main) + ft_strlen(sub) * sizeof(char) + 1);
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (i < index)
-	{
-		str[i] = main[i];
-		i++;
-	}
-	j = 0;
-	while (sub[j])
-		str[i++] = sub[j++];
-	while (main[index])
-		str[i++] = main[index++];
-	str[i] = '\0';
-	free(main);
-	return (str);
-}
-
-/*
-BUG while merging:
-merge_tips(3, 6); -> 15 13 8 1 4 5 6 10 14
-crash!!!
-*/
 
 int	main(int argc, char *argv[])
 {
@@ -91,41 +59,22 @@ int	main(int argc, char *argv[])
 	if (!a)
 		return (write(2, "Error2\n", 7));\
 
-	pre_sort_a_to_b(&a, &b, argc);
-	merge_b_to_a_asc(&a, &b, 3, 3);
-	merge_b_to_a_des(&a, &b, 3, 3);
-	send_b_to_a(&a, &b);
-	send_a_to_b(&a, &b);
-	merge_b_to_a_asc(&a, &b, 6, 3);
-	send_b_to_a(&a, &b);
-	merge_a_to_b_asc(&a, &b, 6, 9);
-
+	pre_sort_a_to_b(&a, &b, argc);	
+	merge_all(&a, &b);
 	ft_lstclear(&a, free);
 	ft_lstclear(&a, free);
 	return (1);
 }
 
 /*
-	ft_printf("pre_sort_a_to_b\n");
-	pre_sort_a_to_b(&a, &b, argc);
-	print_list(a);
-	print_list(b);
-	ft_printf("merge all triangles\n");
-	merge_b_to_a_asc(&a, &b, 3, 3);
-	merge_b_to_a_des(&a, &b, 3, 3);
-	send_b_to_a(&a, &b);
-	print_list(a);10
-	ft_printf("merge all triangles\n");
-	merge_b_to_a_asc(&a, &b, 3, 6);
-	ft_printf("--------------------\n");
-	print_list(a);
-	print_list(b);
-	send_b_to_a(&a, &b);
-	print_list(a);
-	print_list(b);
-	ft_printf("final merge\n");
-	merge_a_to_b_asc(&a, &b, 6, 9);
-	print_list(a);
-	print_list(b);
-
+	// pre_sort_a_to_b(&a, &b, argc);
+	// merge_b_to_a_asc(&a, &b, 3, 3);
+	// merge_b_to_a_des(&a, &b, 3, 3);
+	// send_b_to_a(&a, &b);
+	// send_a_to_b(&a, &b);
+	// merge_b_to_a_asc(&a, &b, 6, 3);
+	// send_b_to_a(&a, &b);
+	// merge_a_to_b_asc(&a, &b, 6, 9);
+	// print_list(a);
+	// print_list(b);
 */

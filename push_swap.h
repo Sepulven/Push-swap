@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:13:59 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/04 15:24:43 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/10 22:40:04 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ typedef	struct s_stats
 	char	side;
 } t_stats;
 
-
-/*main.c*/
-char	*ft_insert_substring(char *main, const char *sub, size_t index);
+/*map.c*/
+char	*create_map(int num, char *map);
 
 /*sort.c*/
 char	*map_pre_sort(int size);
@@ -69,9 +68,11 @@ int		check_limit(char *num);
 int		validator(int argc, char *argv[]);
 
 /*utils.c*/
+char	*ft_insert_substring(char *main, const char *sub, size_t index);
 void	print_list(t_list *head);
 void	send_a_to_b(t_list **a, t_list **b);
 void	send_b_to_a(t_list **a, t_list **b);
+char	*invert_map(char *map);
 
 /*a_utils.c*/
 void	sa(t_list **list);

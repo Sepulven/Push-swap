@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 03:52:51 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/03 19:39:43 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:39:56 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,33 @@ void	print_list(t_list *head)
 		head = head->next;
 	}
 	ft_printf("\n");
+}
+
+char	*ft_insert_substring(char *main, const char *sub, size_t index)
+{
+	size_t	i;
+	size_t	j;
+	char	*str;
+
+	if (!sub || index > ft_strlen(main) - 1)
+		return (NULL);
+	str = (char *)malloc(ft_strlen(main) + ft_strlen(sub) * sizeof(char) + 1);
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i < index)
+	{
+		str[i] = main[i];
+		i++;
+	}
+	j = 0;
+	while (sub[j])
+		str[i++] = sub[j++];
+	while (main[index])
+		str[i++] = main[index++];
+	str[i] = '\0';
+	free(main);
+	return (str);
 }
 
 int	issorted(t_list **list)
