@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 17:17:07 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/11 16:10:06 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/11 21:00:13 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,19 +93,20 @@ void	merge_all(t_list **a, t_list **b)
 	char	side;
 
 	tips = 3;
-	diff = 3;
+	diff = 0;
 	side = 'l';
 	triangles = ft_lstsize(*b) / 3;
 	while (triangles > 1)
 	{
-		if (ft_lstsize(*b) != 0)
+		ft_printf("\n\n%d\n\n", triangles);
+		if (side == 'l')
 			triangles = merge_b(a, b, (t_stats){triangles,  tips, diff, side});
 		else
 			triangles = merge_a(a, b, (t_stats){triangles,  tips, diff, side});
-		tips += tips;
 		if (side == 'l')
 			side = 'r';
 		else if (side == 'r')
 			side = 'l';
+		tips += tips;
 	}
 }

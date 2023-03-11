@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/11 19:23:06 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/11 20:32:31 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,18 @@ int	main(int argc, char *argv[])
 	// sort_three_des(&a, &b);
 	// print_list(a);
 	// print_list(b);
-	// sort_three_des(&a, &b);
-	// sort_three_des(&a, &b);
-	// sort_three_des(&a, &b);
-	// sort_three_des(&a, &b);
-	pre_sort_a_to_b(&a, &b, argc - 1);	
+	pre_sort_a_to_b(&a, &b, argc - 1);
+
+	// ft_printf("\n\n Pre sort done! \n\n");
+	// print_list(b);
+	// ft_printf("\n\n Starting merge all! \n\n");
 	merge_all(&a, &b);
+	// sort_three_asc(&a, &b);
+	// sort_three_asc(&a, &b);
+	// sort_three_asc(&a, &b);
+	// sort_three_asc(&a, &b);
+	// print_list(a);
+	// print_list(b);
 	//1 6 14 2 11 12 8 15 13 3 9 7
 	ft_lstclear(&a, free);
 	ft_lstclear(&a, free);
