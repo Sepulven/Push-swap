@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:13:59 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/10 22:40:04 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/11 15:48:39 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ typedef	struct s_stats
 char	*create_map(int num, char *map);
 
 /*sort.c*/
-char	*map_pre_sort(int size);
 void	pre_sort_a_to_b(t_list **a, t_list **b, int size);
-
 
 /*sort_three.c*/
 void	sort_three_des(t_list **a, t_list **b);

@@ -1,5 +1,17 @@
 {
 	"files.associations": {
-		"*.tcc": "c"
+		"*.tcc": "c",
+		"push_swap.h": "c",
+		"ranges": "c",
+		"array": "c",
+		"deque": "c",
+		"list": "c",
+		"string": "c",
+		"vector": "c",
+		"iterator": "c",
+		"string_view": "c",
+		"libft.h": "c",
+		"stdlib.h": "c",
+		"stdarg.h": "c"
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/10 11:05:34 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/11 19:23:06 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,9 @@
 // Free the list; done
 // Organize the code; done
 // create a simple algo that sort 5 integeers under 12 moves
-
 //TODO: Regardless of the size of the list I always want to pre sort everything; done
-
 //TODO: I must refactor this function
 //TODO: Merge tips des and asc done
-
-typedef struct s_presort
-{
-	void	(*sort_three_x)(t_list **, t_list **);
-	void	(*sort_three_y)(t_list **, t_list **);
-	void	(*merge)(t_list **, t_list **, int, int);
-	t_list	**a;
-	t_list	**b;
-	int		*tmp;
-}	t_presort;
-
 //TODO: Create a map on how we want the the pre_sort_a_to_b; done
 //TODO: Create a function that joins a string in the middle; done
 //TODO: I must refactor this function
@@ -51,30 +38,30 @@ int	main(int argc, char *argv[])
 	t_list	*a;
 	t_list	*b;
 
+	(void)a;
+	(void)b;
 	a = NULL;
 	b = NULL;
 	if (!validator(argc, argv))
 		return (write(2, "Error1\n", 7));
 	a = converter(argc, argv);
 	if (!a)
-		return (write(2, "Error2\n", 7));\
-
-	pre_sort_a_to_b(&a, &b, argc);	
+		return (write(2, "Error2\n", 7));
+	// print_list(a);
+	// print_list(b);
+	// print_list(a);
+	// print_list(b);
+	// sort_three_des(&a, &b);
+	// print_list(a);
+	// print_list(b);
+	// sort_three_des(&a, &b);
+	// sort_three_des(&a, &b);
+	// sort_three_des(&a, &b);
+	// sort_three_des(&a, &b);
+	pre_sort_a_to_b(&a, &b, argc - 1);	
 	merge_all(&a, &b);
+	//1 6 14 2 11 12 8 15 13 3 9 7
 	ft_lstclear(&a, free);
 	ft_lstclear(&a, free);
 	return (1);
 }
-
-/*
-	// pre_sort_a_to_b(&a, &b, argc);
-	// merge_b_to_a_asc(&a, &b, 3, 3);
-	// merge_b_to_a_des(&a, &b, 3, 3);
-	// send_b_to_a(&a, &b);
-	// send_a_to_b(&a, &b);
-	// merge_b_to_a_asc(&a, &b, 6, 3);
-	// send_b_to_a(&a, &b);
-	// merge_a_to_b_asc(&a, &b, 6, 9);
-	// print_list(a);
-	// print_list(b);
-*/

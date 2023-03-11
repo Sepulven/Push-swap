@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:11:09 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/10 22:36:12 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/11 16:24:39 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static char *reverse_map(char *map)
 static char	*revert_map(char *map)
 {
 	int		i;
-	int		size;
 	char	*new;
 
 	i = 0;
@@ -83,11 +82,11 @@ static char	*normalize_odd(char *map)
 char	*create_map(int	num, char *map)
 {
 	if (num == 1)
-		return (ft_strjoin("c", map));
+		return (ft_strjoin(map, "c"));
 	else if (num == 2)
-		return (ft_strjoin("dc", map));
+		return (ft_strjoin(map, "dc"));
 	else if (num == 3)
-		return (ft_strjoin("ddc", map));
+		return (ft_strjoin(map, "dcc"));
 	else
 	{
 		if (num % 2 != 0)

@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 00:14:49 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/03 19:03:07 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/11 19:21:45 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,28 @@ void	sort_three_des(t_list **a, t_list **b)
 {
 	t_list	*tmp;
 
+	if (!(*a) || !(*a)->next || !(*a)->next->next)
+		return ;
+	tmp = *a;
+	if (*(int *)tmp->content > *(int *)tmp->next->content)
+		sa(a);
+	tmp = (*a)->next;
+	pb(a, b);
+	if (*(int *)(*a)->content < *(int *)(*a)->next->content)
+		sa(a);
+	pb(a, b);
+	if (*(int *)(*b)->content < *(int *)(*b)->next->content)
+		sb(b);
+	pb(a, b);
+}
+
+
+void	sort_three_asc(t_list **a, t_list **b)
+{
+	t_list	*tmp;
+
+	if (!(*a) || !(*a)->next || !(*a)->next->next)
+		return ;
 	tmp = *a;
 	if (*(int *)tmp->content < *(int *)tmp->next->content)
 		sa(a);
@@ -25,23 +47,6 @@ void	sort_three_des(t_list **a, t_list **b)
 		sa(a);
 	pb(a, b);
 	if (*(int *)(*b)->content > *(int *)(*b)->next->content)
-		sb(b);
-	pb(a, b);
-}
-
-void	sort_three_asc(t_list **a, t_list **b)
-{
-	t_list	*tmp;
-
-	tmp = *a;
-	if (*(int *)tmp->content > *(int *)tmp->next->content)
-		sa(a);
-	tmp = (*a)->next;
-	pb(a, b);
-	if (*(int *)(*a)->content > *(int *)(*a)->next->content)
-		sa(a);
-	pb(a, b);
-	if (*(int *)(*b)->content < *(int *)(*b)->next->content)
 		sb(b);
 	pb(a, b);
 }

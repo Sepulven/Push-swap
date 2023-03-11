@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:58:45 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/03 19:01:09 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/11 19:06:06 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ void	sa(t_list **list)
 	t_list	*node1;
 	t_list	*node2;
 
+	if (!(*list)->next)
+		return ;
 	node1 = pop_head(list);
+	if (!node1)
+		return ;
 	node2 = pop_head(list);
 	if (!node2)
 		return ;

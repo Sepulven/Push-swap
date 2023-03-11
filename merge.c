@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 17:17:07 by asepulve          #+#    #+#             */
-/*   Updated: 2023/03/09 15:57:09 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/03/11 16:10:06 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,26 @@ int	merge_a(t_list **a, t_list **b, t_stats stats)
 	int		tmp;
 
 	tmp = stats.triangles;
-	l_tip = stats.tips;
-	r_tip = stats.tips;
 	while (stats.triangles > 1)
 	{
-		if (*(int *)(*a)->content < *(int *)(*a)->next->content)
-			merge_a_to_b_des(a, b, l_tip, r_tip);
+		if (stats.triangles == tmp && stats.diff > 0)
+		{
+			if (stats.side == 'l')
+				l_tip = stats.diff + stats.tips;
+			else if (stats.side == 'r')
+				r_tip = stats.diff + stats.tips;
+			if (*(int *)(*b)->content < *(int *)(*b)->next->content)
+				merge_b_to_a_des(a, b, l_tip, r_tip);
+			else
+				merge_b_to_a_asc(a, b, l_tip, r_tip);	
+		}
 		else
-			merge_a_to_b_asc(a, b, l_tip, r_tip);
+		{
+			if (*(int *)(*a)->content < *(int *)(*a)->next->content)
+				merge_a_to_b_des(a, b, l_tip, r_tip);
+			else
+				merge_a_to_b_asc(a, b, l_tip, r_tip);
+		}
 		stats.triangles -= 2;
 	}
 	if (stats.triangles == 1)
@@ -46,14 +58,26 @@ int	merge_b(t_list **a, t_list **b,	t_stats stats)
 	int		tmp;
 
 	tmp = stats.triangles;
-	l_tip = stats.tips;
-	r_tip = stats.tips;
 	while (stats.triangles > 1)
 	{
-		if (*(int *)(*b)->content < *(int *)(*b)->next->content)
-			merge_b_to_a_des(a, b, l_tip, r_tip);
+		if (stats.triangles == tmp && stats.diff > 0)
+		{	
+			if (stats.side == 'l')
+				l_tip = stats.diff + stats.tips;
+			else if (stats.side == 'r')
+				r_tip = stats.diff + stats.tips;
+			if (*(int *)(*b)->content < *(int *)(*b)->next->content)
+				merge_b_to_a_des(a, b, l_tip, r_tip);
+			else
+				merge_b_to_a_asc(a, b, l_tip, r_tip);
+		}
 		else
-			merge_b_to_a_asc(a, b, l_tip, r_tip);
+		{
+			if (*(int *)(*b)->content < *(int *)(*b)->next->content)
+				merge_b_to_a_des(a, b, stats.tips, stats.tips);
+			else
+				merge_b_to_a_asc(a, b, stats.tips, stats.tips);
+		}
 		stats.triangles -= 2;
 	}
 	if (stats.triangles == 1)
@@ -69,9 +93,8 @@ void	merge_all(t_list **a, t_list **b)
 	char	side;
 
 	tips = 3;
-	diff = 0;
+	diff = 3;
 	side = 'l';
-	// Assuming it's multiples of three;
 	triangles = ft_lstsize(*b) / 3;
 	while (triangles > 1)
 	{
@@ -80,14 +103,9 @@ void	merge_all(t_list **a, t_list **b)
 		else
 			triangles = merge_a(a, b, (t_stats){triangles,  tips, diff, side});
 		tips += tips;
+		if (side == 'l')
+			side = 'r';
+		else if (side == 'r')
+			side = 'l';
 	}
 }
-
-		// if (triangles % 2 != 0)
-		// {
-		// 	diff = 3;
-		// 	if (side == 'l')
-		// 		side = 'r';
-		// 	else
-		// 		side = 'l';
-		// }
