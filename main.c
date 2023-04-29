@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/29 15:52:46 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:33:14 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int	main(int argc, char *argv[])
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
-	sort_sub_stack(&a, &b, (t_sort_n){25, 25, 'b', 'g'});
-	ft_printf("LST_SIZE: %d\n", ft_lstsize(b));
+	sort_with_diviser(&a, &b, argc - 1, 'c', 'a');
 	ft_lstclear(&a, free);
 	ft_lstclear(&a, free);
 	return (1);

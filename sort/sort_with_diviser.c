@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 22:50:31 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/29 15:55:22 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:32:53 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,9 +115,12 @@ void	sort_with_diviser(t_list **a, t_list **b, int range, char order, char stack
 		i = 0;
 		if (!b || !*b)
 			return ;
+		ft_printf("dentro\n");
 		diviser = diviser_value(*b, range);
+		ft_printf("dentro\n");
 		while (*b && i < range)
 		{
+			ft_printf("dentro\n");
 			if (order == 'c' && *(int *)(*b)->content >= diviser)
 			{
 				pa(a, b);
