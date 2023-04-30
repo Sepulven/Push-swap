@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 04:22:44 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/29 15:47:42 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/30 22:01:12 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ t_list	*converter(int argc, char *argv[])
 	int		i;
 
 	i = 1;
-	nbr = malloc(sizeof(int));
-	*(int *)nbr = ft_atoi(argv[i++]);
-	stack = ft_lstnew(nbr);
+	stack = NULL;
 	while (i < argc)
 	{
 		nbr = malloc(sizeof(int));

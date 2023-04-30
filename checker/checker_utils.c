@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 13:38:04 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/11 13:46:17 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/30 19:17:52 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	issorted(t_list **list)
 	return (1);
 }
 
-t_list *converter(int argc, char *argv[])
+t_list	*converter(int argc, char *argv[])
 {
 	t_list	*stack;
 	void	*nbr;

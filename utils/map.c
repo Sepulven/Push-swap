@@ -6,13 +6,13 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:11:09 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/29 15:49:29 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/30 22:12:03 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-static char *reverse_map(char *map)
+static char	*reverse_map(char *map)
 {
 	int		i;
 	int		size;
@@ -102,4 +102,3 @@ char	*create_map(int num)
 			create_map(num / 2)));
 	}
 }
-

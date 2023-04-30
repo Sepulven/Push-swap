@@ -6,7 +6,7 @@
 #    By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 14:06:30 by asepulve          #+#    #+#              #
-#    Updated: 2023/04/30 17:12:09 by asepulve         ###   ########.fr        #
+#    Updated: 2023/04/30 21:37:39 by asepulve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,11 +46,13 @@ SRC				=	$(addprefix operations/,$(OPERATIONS_SRC)) \
 OBJ				=	${SRC:.c=.o}
 INCLUDES		=	libft/libft.a
 
+ARG				=
+
 all:		${NAME}
 
 %.o: %.c
 		@$(CC) $(CFLAGS) -c $^ -o $@
-
+ 
 $(NAME):${OBJ}
 			@make -s -C libft
 			@${CC} ${CFLAGS} ${OBJ}  libft/libft.a -o ${NAME}
@@ -59,10 +61,13 @@ clean:
 			@make clean -s -C libft
 			@${RM} ${OBJ}
 
-commit: fclean
-			git add .
-			git commit
-			git push
+vchecker:
+		@make -s
+		@valgrind --verbose --leak-check=full --show-leak-kinds=all ./push_swap $ARG 2>valgrind.txt
+		
+v:
+		@make -s
+		@valgrind --verbose --leak-check=full --log-file=valgrind.log --show-leak-kinds=all ./push_swap
 
 fclean:		clean
 			@make fclean -s -C libft

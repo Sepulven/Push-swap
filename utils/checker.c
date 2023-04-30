@@ -6,27 +6,19 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:39:35 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/30 16:59:39 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/01 00:35:47 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./utils.h"
 
-/*
-	* g = greatest; 2 = second-greatest; s = smallest;
-*/
-void	checker(t_list **a, t_list **b, t_sort_n *stat, int *size)
+static void	second_greatest_util_2(t_list **a, t_list **b, \
+		int *sec_tip, t_sort_n *stat)
 {
 	int			posx[2];
 	int			cost[2];
 	int			lst_size;
-	int			sec_tip;
-	int			buff_tip;
 
-	if (stat->greatness != '2')
-		return ;
-	posx[1] = best_el(*b, stat->l_side, stat->r_side, stat);
-	sec_tip = 0;
 	while (stat->greatness == '2')
 	{
 		lst_size = ft_lstsize(*b);
@@ -41,21 +33,76 @@ void	checker(t_list **a, t_list **b, t_sort_n *stat, int *size)
 		else
 		{
 			send_el_to(a, b, posx[0], 'a');
-			calc_tips_size(stat, posx[0], size);
-			sec_tip++;
+			calc_tips_size(stat, posx[0]);
+			(*sec_tip)++;
 		}
 	}
-	lst_size = ft_lstsize(*b);
-	buff_tip = sec_tip;
-	while (buff_tip-- > 0)
+	posx[0] = (*sec_tip);
+	while (posx[0]-- > 0)
 		ra(a);
+}
+
+void	second_greatest_util_1(t_list **a, t_list **b, \
+		int *r_a_tip, t_sort_n *stat)
+{
+	int	pos;
+
+	pos = best_el(*b, stat->l_side, stat->r_side, stat);
+	while (stat->greatness == 's')
+	{
+		send_el_to(a, b, pos, 'b');
+		calc_tips_size(stat, pos);
+		ra(a);
+		(*r_a_tip)++;
+		pos = best_el(*a, stat->l_side, stat->r_side, stat);
+	}
+}
+
+/*
+	! Recebiamos o size por referencia para podemrmos decrementalo.
+	! Atenção !
+*/
+void	second_greatest_case(t_list **a, t_list **b, \
+		t_sort_n *stat, int *r_a_tip)
+{
+	int			sec_tip;
+	int			pos;
+
+	(void)r_a_tip;
+	pos = best_el(*b, stat->l_side, stat->r_side, stat);
+	sec_tip = 0;
+	if (stat->greatness == 's')
+		second_greatest_util_1(a, b, r_a_tip, stat);
+	pos = best_el(*b, stat->l_side, stat->r_side, stat);
+	if (stat->greatness == '2')
+		second_greatest_util_2(a, b, &sec_tip, stat);
+	pos = get_nth_greatness_pos(*b, stat->l_side, stat->r_side, \
+		stat->l_side + stat->r_side);
 	if (stat->greatness == 'g')
 	{
-		send_el_to(a, b, posx[1], 'a');
-		calc_tips_size(stat, posx[1], size);
+		send_el_to(a, b, pos, 'a');
+		calc_tips_size(stat, pos);
 		sa(a);
 	}
-	lst_size = ft_lstsize(*b);
 	while (sec_tip-- > 0)
 		rra(a);
+}
+
+void	smallest_case(t_list **a, t_list **b, t_sort_n *stat, int *r_a_tip)
+{
+	(void)b;
+	(void)stat;
+	ra(a);
+	(*r_a_tip)++;
+}
+
+/*
+	* g = greatest; 2 = second-greatest; s = smallest;
+*/
+void	checker(t_list **a, t_list **b, t_sort_n *stat, int *r_a_tip)
+{
+	if (stat->greatness == '2')
+		second_greatest_case(a, b, stat, r_a_tip);
+	if (stat->greatness == 's')
+		smallest_case(a, b, stat, r_a_tip);
 }

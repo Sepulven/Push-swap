@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:53:10 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/30 17:11:47 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/30 22:54:05 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_sort_n
 	int		r_side;
 	char	stack;
 	char	greatness;
+	int		size;
 }	t_sort_n;
 
 /*utils.c*/
@@ -49,7 +50,7 @@ int		*create_sub_stack(t_list *lst, int l_side, int r_side);
 /*costs.c*/
 int		cost_send(int lst_size, int pos);
 int		best_el(t_list *lst, int l_pos, int r_pos, t_sort_n *stat);
-void	calc_tips_size(t_sort_n *stat, int pos, int *size);
+void	calc_tips_size(t_sort_n *stat, int pos);
 
 /*checker.c*/
 void	checker(t_list **a, t_list **b, t_sort_n *stat, int *size);

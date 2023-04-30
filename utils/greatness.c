@@ -6,23 +6,19 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:36:21 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/29 15:49:50 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/30 21:45:21 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./utils.h"
 
-int	*create_sub_stack(t_list *lst, int l_side, int r_side)
+static void	populate_sub_stack(t_list *lst, int *stack, int l_side, int r_side)
 {
-	int	lst_size;
 	int	i;
 	int	index_holder;
-	int	*stack;
+	int	lst_size;
 
 	lst_size = ft_lstsize(lst);
-	stack = malloc((l_side + r_side) * sizeof (int));
-	if (!stack)
-		return (NULL);
 	i = 0;
 	while (i < l_side && lst)
 	{
@@ -41,6 +37,16 @@ int	*create_sub_stack(t_list *lst, int l_side, int r_side)
 		i++;
 		lst = lst->next;
 	}
+}
+
+int	*create_sub_stack(t_list *lst, int l_side, int r_side)
+{
+	int	*stack;
+
+	stack = malloc((l_side + r_side) * sizeof (int));
+	if (!stack)
+		return (NULL);
+	populate_sub_stack(lst, stack, l_side, r_side);
 	return (stack);
 }
 
@@ -53,7 +59,7 @@ int	get_nth_greatness_value(t_list *lst, int l_side, int r_side, int greatness)
 	int	j;
 	int	*sub_stack;
 
-	if (greatness - 1 > l_side + r_side || greatness < 0)
+	if (greatness > l_side + r_side || greatness < 0)
 	{
 		ft_printf("Greatness out of range.\n");
 		exit(EXIT_FAILURE);
