@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/30 18:09:31 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/30 18:29:33 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,37 +44,36 @@ int	main(int argc, char *argv[])
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
-	// sort_sub_stack(&a, &b, (t_sort_n){50, 50, 'b', 'g'});
-	split_stack_diviser(&a, &b, (t_stat){'a', 'c', 100});
-	diviser_tips(&a, &b, (t_stat){'a', 'c', 25});
-	diviser_tips(&a, &b, (t_stat){'a', 'c', 25});
-	diviser_tips(&a, &b, (t_stat){'b', 'd', 12});
-	i = 0;
-	while (i++ < 13)
-		rra(&a);
-	diviser_tips(&a, &b, (t_stat){'b', 'd', 13});
-	diviser_tips(&a, &b, (t_stat){'b', 'd', 12});
-	i = 0;
-	while (i++ < 13)
-		rra(&a);
-	diviser_tips(&a, &b, (t_stat){'b', 'd', 13});
-	diviser_tips_sorted(&a, &b, (t_stat){'b', 'c', 50});
+	// split_stack_diviser(&a, &b, (t_stat){'a', 'c', 100});
+	// diviser_tips(&a, &b, (t_stat){'a', 'c', 25});
+	// diviser_tips(&a, &b, (t_stat){'a', 'c', 25});
 	// diviser_tips(&a, &b, (t_stat){'b', 'd', 12});
-	// diviser_tips(&a, &b, (t_stat){'a', 'c', 24});
 	// i = 0;
-	// diviser_tips(&a, &b, (t_stat){'b', 'd', 12});
-	// diviser_tips(&a, &b, (t_stat){'b', 'd', 13});
-	// i = 0;
-	// while (i < 12)
-	// {
+	// while (i++ < 13)
 	// 	rra(&a);
-	// 	i++;
-	// }
 	// diviser_tips(&a, &b, (t_stat){'b', 'd', 13});
-	// // * half of the stack 
-	// diviser_tips(&a, &b, (t_stat){'b', 'c', 24});
-	// diviser_tips_sorted(&a, &b, (t_stat){'b', 'c', 12});
-	// diviser_tips_sorted(&a, &b, (t_stat){'b', 'c', 12});
+	// diviser_tips(&a, &b, (t_stat){'b', 'd', 12});
+	// i = 0;
+	// while (i++ < 13)
+	// 	rra(&a);
+	// diviser_tips(&a, &b, (t_stat){'b', 'd', 13});
+	// diviser_tips_sorted(&a, &b, (t_stat){'b', 'c', 50});
+	// sort_sub_stack(&a, &b, (t_sort_n){50, 50, 'b', 'g'});
+	// split_stack_diviser(&a, &b, (t_stat){'a', 'c', 500});
+	// diviser_tips(&a, &b, (t_stat){'a', 'c', 125});
+	// diviser_tips(&a, &b, (t_stat){'a', 'c', 125});
+	// diviser_tips(&a, &b, (t_stat){'b', 'd', 62});
+	// i = 0;
+	// while (i++ < 63)
+	// 	rra(&a);
+	// diviser_tips(&a, &b, (t_stat){'b', 'd', 63});
+	// diviser_tips(&a, &b, (t_stat){'b', 'd', 62});
+	// i = 0;
+	// while (i++ < 63)
+	// 	rra(&a);
+	// diviser_tips(&a, &b, (t_stat){'b', 'd', 63});
+	// diviser_tips_sorted(&a, &b, (t_stat){'b', 'c', 250});
+	// sort_sub_stack(&a, &b, (t_sort_n){250, 250, 'b', 'g'});
 	ft_lstclear(&a, free);
 	ft_lstclear(&b, free);
 	return (1);
