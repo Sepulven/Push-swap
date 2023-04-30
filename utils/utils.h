@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:53:10 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/29 15:47:14 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/29 17:54:47 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "../operations/operations.h"
 # include "../libft/libft.h"
+
+# define PING write(1, "PING\n", 6);
 
 typedef struct s_sort_n
 {

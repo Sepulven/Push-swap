@@ -6,49 +6,11 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 22:50:31 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/29 16:32:53 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/30 10:35:29 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
-
-static int	diviser_value(t_list *list, int range)
-{
-	int	*buff;
-	int	i;
-	int	j;
-	int	tmp;
-
-	buff = malloc(range * sizeof (int));
-	if (!buff)
-		return (-0);
-	i = 0;
-	while (list && i < range)
-	{
-		buff[i] = *(int *)list->content;
-		list = list->next;
-		i++;
-	}
-	// Bubble sort
-	i = 0;
-	while (i < range - 1)
-	{
-		j = 0;
-		while (j < range - 1)
-		{
-			if (buff[j] > buff[j + 1])
-				ft_swap(&buff[j], &buff[j + 1]);
-			j++;
-		}
-		i++;
-	}
-	i = 0;
-	while (i < (range - 1) / 2)
-		i++;
-	tmp = buff[i + (range % 2 != 0)];
-	free(buff);
-	return (tmp);
-}
 
 float	calculate_avrg(t_list *list, int range)
 {
@@ -115,12 +77,9 @@ void	sort_with_diviser(t_list **a, t_list **b, int range, char order, char stack
 		i = 0;
 		if (!b || !*b)
 			return ;
-		ft_printf("dentro\n");
 		diviser = diviser_value(*b, range);
-		ft_printf("dentro\n");
 		while (*b && i < range)
 		{
-			ft_printf("dentro\n");
 			if (order == 'c' && *(int *)(*b)->content >= diviser)
 			{
 				pa(a, b);
