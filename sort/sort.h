@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 19:48:06 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/30 13:05:25 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/30 14:19:32 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	split_stack(t_list **a, t_list **b, t_stat s);
 void	split_stack_diviser(t_list **a, t_list **b, t_stat s);
 
 /*tips.c*/
-void	diviser_to_tips(t_list **a, t_list **b, int range, char stack);
+void	diviser_tips(t_list **a, t_list **b, t_stat s);
 
 /*tips_sorted.c*/
-void	diviser_tips_sorted(t_list **a, t_list **b, int range, char stack);
+void	diviser_tips_sorted(t_list **a, t_list **b, t_stat s);
 
 #endif
