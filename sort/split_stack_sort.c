@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:13:47 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/30 14:17:32 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/30 17:48:48 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,14 @@ static void	split_a_stack_sorted_asc(t_list **a, t_list **b, int range)
 
 	i = 0;
 	diviser = diviser_value(*a, range);
-	sub_diviser = sub_diviser_value(*a, range);
+	sub_diviser = get_nth_greatness_value(*a, range, 0, range / 4);
 	while (*a && i < range)
 	{
 		if (*(int *)(*a)->content > diviser)
 			ra(a);
 		else
 		{
-			if (*(int *)(*a)->content < sub_diviser)
+			if (*(int *)(*a)->content <= sub_diviser)
 			{
 				pb(a, b);
 				rb(b);

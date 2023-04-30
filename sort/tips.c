@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 18:13:33 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/30 14:19:27 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/30 17:53:24 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void	diviser_to_tips_a_asc(t_list **a, t_list **b, int range)
 	int		i;
 
 	i = 0;
-	diviser = diviser_value(*b, range);
+	diviser = get_nth_greatness_value(*b, range, 0, range / 2);
 	while (*b && i < range)
 	{
 		if (*(int *)(*b)->content > diviser)
