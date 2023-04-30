@@ -6,7 +6,7 @@
 #    By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 14:06:30 by asepulve          #+#    #+#              #
-#    Updated: 2023/04/30 12:22:12 by asepulve         ###   ########.fr        #
+#    Updated: 2023/04/30 12:40:13 by asepulve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ UTILS_SRC		=	costs.c find.c greatness.c map.c send.c tips_map.c\
 					utils.c validator.c
 
 SORT_SRC		=	tips.c utils_sort.c tips_sorted.c split_stack.c\
-					sort_with_diviser.c split_stack_sort.c
+					split_stack_sort.c
 
 SRC				=	$(addprefix operations/,$(OPERATIONS_SRC)) \
 					$(addprefix utils/,$(UTILS_SRC)) \

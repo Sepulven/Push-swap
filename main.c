@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/30 12:34:45 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/30 12:58:17 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,16 @@ int	main(int argc, char *argv[])
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
-	split_stack_diviser(&a, &b, argc - 1, 'a');
-	diviser_to_tips(&a, &b, 25, 'a');
-	diviser_to_tips(&a, &b, 25, 'a');
-	diviser_to_tips(&a, &b, 13, 'b');
-	diviser_to_tips(&a, &b, 13, 'b');
+	split_stack(&a, &b, (t_stat){'a', 'd', argc - 1});
+	ft_lstclear(&a, free);
+	ft_lstclear(&b, free);
+	return (1);
+}
+
+	// diviser_to_tips(&a, &b, 25, 'a');
+	// diviser_to_tips(&a, &b, 25, 'a');
+	// diviser_to_tips(&a, &b, 13, 'b');
+	// diviser_to_tips(&a, &b, 13, 'b');
 	// diviser_to_tips(&a, &b, 25, 'b');
 	// i = 0;
 	// while (i < 25)
@@ -43,7 +48,4 @@ int	main(int argc, char *argv[])
 	// }
 	// diviser_to_tips(&a, &b, 25, 'b');
 	// diviser_tips_sorted(&a, &b, 50, 'b');
-	ft_lstclear(&a, free);
-	ft_lstclear(&b, free);
-	return (1);
-}
+	
