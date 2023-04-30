@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:53:10 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/29 17:54:47 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/30 17:11:47 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ int		best_el(t_list *lst, int l_pos, int r_pos, t_sort_n *stat);
 void	calc_tips_size(t_sort_n *stat, int pos, int *size);
 
 /*checker.c*/
-void	checker(t_list **a, t_list **b, t_sort_n *stat, \
-		int *r_b_tip, int *size);
+void	checker(t_list **a, t_list **b, t_sort_n *stat, int *size);
 
 /*validator.c*/
 int		ft_isnum(char *num);

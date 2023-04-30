@@ -6,11 +6,26 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/30 14:37:46 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/30 17:27:28 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_sub_stack(t_list **a, t_list **b, t_sort_n stat)
+{
+	int		pos;
+	int		size;
+
+	size = ft_lstsize(*b);
+	while (stat.l_side + stat.r_side > 0 && size)
+	{
+		pos = best_el(*b, stat.l_side, stat.r_side, &stat);
+		send_el_to(a, b, pos, 'a'); 
+		calc_tips_size(&stat, pos, &size);
+		checker(a, b, &stat, &size);
+	}
+}
 
 int	main(int argc, char *argv[])
 {
@@ -29,27 +44,31 @@ int	main(int argc, char *argv[])
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
-	split_stack_diviser(&a, &b, (t_stat){'a', 'c', 100});
-	diviser_tips(&a, &b, (t_stat){'a', 'c', 26});
-	diviser_tips(&a, &b, (t_stat){'a', 'c', 24});
-	diviser_tips(&a, &b, (t_stat){'b', 'd', 12});
 	i = 0;
-	while (i < 12)
-	{
-		rra(&a);
-		i++;
-	}
-	diviser_tips(&a, &b, (t_stat){'b', 'd', 12});
-	diviser_tips(&a, &b, (t_stat){'b', 'd', 13});
-	i = 0;
-	while (i < 12)
-	{
-		rra(&a);
-		i++;
-	}
-	diviser_tips(&a, &b, (t_stat){'b', 'd', 13});
-	// * half of the stack 
-	diviser_tips(&a, &b, (t_stat){'b', 'c', 24});
+	while (i++ < argc - 1)
+		pb(&a, &b);
+	sort_sub_stack(&a, &b, (t_sort_n){50, 50, 'b', 'g'});
+	// split_stack_diviser(&a, &b, (t_stat){'a', 'c', 100});
+	// diviser_tips(&a, &b, (t_stat){'a', 'c', 26});
+	// diviser_tips(&a, &b, (t_stat){'a', 'c', 24});
+	// diviser_tips(&a, &b, (t_stat){'b', 'd', 12});
+	// i = 0;
+	// while (i < 12)
+	// {
+	// 	rra(&a);
+	// 	i++;
+	// }
+	// diviser_tips(&a, &b, (t_stat){'b', 'd', 12});
+	// diviser_tips(&a, &b, (t_stat){'b', 'd', 13});
+	// i = 0;
+	// while (i < 12)
+	// {
+	// 	rra(&a);
+	// 	i++;
+	// }
+	// diviser_tips(&a, &b, (t_stat){'b', 'd', 13});
+	// // * half of the stack 
+	// diviser_tips(&a, &b, (t_stat){'b', 'c', 24});
 	// diviser_tips_sorted(&a, &b, (t_stat){'b', 'c', 12});
 	// diviser_tips_sorted(&a, &b, (t_stat){'b', 'c', 12});
 	ft_lstclear(&a, free);

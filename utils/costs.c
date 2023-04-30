@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:40:55 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/29 15:52:05 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/30 17:07:01 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,36 +38,22 @@ int	cost_send(int lst_size, int pos)
 */
 int	best_el(t_list *lst, int l_pos, int r_pos, t_sort_n *stat)
 {
-	int	pos[4];
-	int	cost[4];
+	int	pos[2];
+	int	cost[2];
 	int	lst_size;
 
 	lst_size = ft_lstsize(lst);
-	pos[0] = get_nth_greatness_pos(lst, l_pos, r_pos, 1);
-	pos[1] = get_nth_greatness_pos(lst, l_pos, r_pos, l_pos + r_pos - 1);
-	pos[2] = get_nth_greatness_pos(lst, l_pos, r_pos, l_pos + r_pos);
-	pos[3] = get_nth_greatness_pos(lst, l_pos, r_pos, 2);
-	cost[0] = cost_send(lst_size, pos[0]) + 2;
-	cost[1] = cost_send(lst_size, pos[1]) + 1;
-	cost[2] = cost_send(lst_size, pos[2]);
-	cost[3] = cost_send(lst_size, pos[3]) + 2; // * Possui o mesmo custo na hora de enviar, entretanto não possui a mesma prioridade.
+	pos[0] = get_nth_greatness_pos(lst, l_pos, r_pos, l_pos + r_pos - 1);
+	pos[1] = get_nth_greatness_pos(lst, l_pos, r_pos, l_pos + r_pos);
+	cost[0] = cost_send(lst_size, pos[0]) + 1;
+	cost[1] = cost_send(lst_size, pos[1]);
 	stat->greatness = 'g';
-	if (cost[0] < cost[1] && cost[0] < cost[2] && cost[0] <= cost[3])
-	{
-		stat->greatness = 's';
-		return (pos[0]);
-	}
-	else if (cost[1] <= cost[0] && cost[1] < cost[2] && cost[1] <= cost[3])
+	if (cost[0] <= cost[1])
 	{
 		stat->greatness = '2';
-		return (pos[1]);
+		return (pos[0]);
 	}
-	else if (cost[3] < cost[0] && cost[3] < cost[1] && cost[3] < cost[2])
-	{
-		stat->greatness = 'S';
-		return (pos[3]);
-	}
-	return (pos[2]);
+	return (pos[1]);
 }
 
 // * Aplica a mesma logica antes vista pelo sort_n

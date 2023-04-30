@@ -6,7 +6,7 @@
 #    By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 14:06:30 by asepulve          #+#    #+#              #
-#    Updated: 2023/04/30 12:40:13 by asepulve         ###   ########.fr        #
+#    Updated: 2023/04/30 17:12:09 by asepulve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ RM				=	rm -f
 OPERATIONS_SRC	=	a_utils.c ab_utils.c b_utils.c
 
 UTILS_SRC		=	costs.c find.c greatness.c map.c send.c tips_map.c\
-					utils.c validator.c
+					utils.c validator.c checker.c
 
 SORT_SRC		=	tips.c utils_sort.c tips_sorted.c split_stack.c\
 					split_stack_sort.c
