@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/05/01 11:36:29 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/02 00:02:07 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,41 @@ void	sort_sub_stack(t_list **a, t_list **b, t_sort_n stat)
 		rra(a);
 }
 
+static void	init_stacks_size(int *a, int*b, int size)
+{
+	a[0] = size / 2;
+	b[0] = size / 2 + (size % 2 != 0);
+	a[1] = a[0] / 2;
+	b[1] = b[0] / 2;
+	a[2] = a[1] / 2;
+	b[2] = b[1] / 2;
+}
+
 //  * No momento de dar o split eu posso simplemente passa um elemento para um lado e deixo o outro.
 //  * So tenho de ter cuidado para perder o el.
 void	push_swap(t_list **a, t_list **b, int size)
 {
 	int	i;
+	int	stack_a[3];
+	int	stack_b[3];
 
+	init_stacks_size(stack_a, stack_b, size);
 	split_stack_diviser(a, b, (t_stat){'a', 'c', size});
-	diviser_tips(a, b, (t_stat){'a', 'c', size / 4});
-	diviser_tips(a, b, (t_stat){'a', 'c', size / 4});
-	diviser_tips(a, b, (t_stat){'b', 'd', size / 8});
+	diviser_tips(a, b, (t_stat){'a', 'c', stack_b[1]});
+	diviser_tips(a, b, (t_stat){'a', 'c', stack_b[1] + (stack_b[0] % 2 != 0)});
+	diviser_tips(a, b, (t_stat){'b', 'd', stack_b[2]});
 	i = 0;
-	while (i++ < (size / 8) + 1)
+	while (i++ < stack_b[2] + (stack_b[1] % 2 != 0))
 		rra(a);
-	diviser_tips(a, b, (t_stat){'b', 'd', (size / 8) + 1});
-	diviser_tips(a, b, (t_stat){'b', 'd', size / 8});
+	diviser_tips(a, b, (t_stat){'b', 'd', stack_b[2] + (stack_b[1] % 2 != 0)});
+	diviser_tips(a, b, (t_stat){'b', 'd', stack_b[2]});
 	i = 0;
-	while (i++ < (size / 8) + 1)
+	while (i++ < stack_b[2] + (stack_b[1] % 2 != 0))
 		rra(a);
-	diviser_tips(a, b, (t_stat){'b', 'd', (size / 8) + 1});
-	split_stack_diviser(a, b, (t_stat){'a', 'c', size / 2});
-	diviser_tips_sorted(a, b, (t_stat){'b', 'c', size / 4});
-	sort_sub_stack(a, b, (t_sort_n){size / 2, size / 2, \
+	diviser_tips(a, b, (t_stat){'b', 'd', stack_b[2] + (stack_b[1] % 2 != 0)});
+	split_stack_diviser(a, b, (t_stat){'a', 'c', stack_a[0] + (size % 2 != 0)});
+	diviser_tips_sorted(a, b, (t_stat){'b', 'c', stack_a[1] + (stack_a[0] % 2 != 0)});
+	sort_sub_stack(a, b, (t_sort_n){size, 0,\
 	'b', 'g', ft_lstsize(*b)});
 }
 
