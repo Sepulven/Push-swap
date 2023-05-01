@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/05/01 01:17:33 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/01 11:36:29 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,8 @@ void	push_swap(t_list **a, t_list **b, int size)
 		rra(a);
 	diviser_tips(a, b, (t_stat){'b', 'd', (size / 8) + 1});
 	split_stack_diviser(a, b, (t_stat){'a', 'c', size / 2});
-	split_stack_diviser(a, b, (t_stat){'a', 'c', size / 2});
 	diviser_tips_sorted(a, b, (t_stat){'b', 'c', size / 4});
-	diviser_tips_sorted(a, b, (t_stat){'b', 'c', size / 4});
-	sort_sub_stack(a, b, (t_sort_n){size / 2, size / 2, 
+	sort_sub_stack(a, b, (t_sort_n){size / 2, size / 2, \
 	'b', 'g', ft_lstsize(*b)});
 }
 
