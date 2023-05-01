@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 10:32:51 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/30 18:08:55 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/01 00:56:39 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,13 @@ static void	diviser_tips_sorted_b_des(t_list **a, t_list **b, int range)
 			if (*(int *)(*a)->content < sub_diviser)
 			{
 				pb(a, b);
-				rb(b);
+				if (*(int *)(*a)->content < diviser)
+				{
+					rr(a, b);
+					i++;
+				}
+				else
+					ra(a);
 			}
 			else
 				pb(a, b);
@@ -84,7 +90,13 @@ static void	diviser_tips_sorted_a_asc(t_list **a, t_list **b, int range)
 			if (*(int *)(*b)->content > sub_diviser)
 			{
 				pa(a, b);
-				ra(a);
+				if (*(int *)(*b)->content > diviser)
+				{
+					rr(a, b);
+					i++;
+				}
+				else
+					ra(a);
 			}
 			else
 				pa(a, b);

@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:13:47 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/30 17:48:48 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/01 00:50:55 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,27 @@ static void	split_b_stack_sorted_asc(t_list **a, t_list **b, int range)
 	int		sub_diviser;
 
 	i = 0;
-	diviser = diviser_value(*b, range);
-	sub_diviser = sub_diviser_value(*b, range);
-	while (*b && i < range)
+	diviser = diviser_value(*a, range);
+	sub_diviser = get_nth_greatness_value(*a, range, 0, range / 4);
+	while (*a && i < range)
 	{
-		if (*(int *)(*b)->content > diviser)
-			rb(b);
+		if (*(int *)(*a)->content > diviser)
+			ra(a);
 		else
 		{
-			if (*(int *)(*b)->content > sub_diviser)
+			if (*(int *)(*a)->content <= sub_diviser)
 			{
-				pa(a, b);
-				ra(a);
+				pb(a, b);
+				if (*(int *)(*a)->content > diviser)
+				{
+					rr(a, b);
+					i++;
+				}
+				else
+					rb(b);
 			}
 			else
-				pa(a, b);
+				pb(a, b);
 		}
 		i++;
 	}
@@ -46,21 +52,27 @@ static void	split_b_stack_sorted_des(t_list **a, t_list **b, int range)
 	int		sub_diviser;
 
 	i = 0;
-	diviser = diviser_value(*b, range);
-	sub_diviser = get_nth_greatness_value(*b, range, 0, range - (range / 4));
-	while (*b && i < range)
+	diviser = diviser_value(*a, range);
+	sub_diviser = get_nth_greatness_value(*a, range, 0, range - (range / 4));
+	while (*a && i < range)
 	{
-		if (*(int *)(*b)->content < diviser)
-			rb(b);
+		if (*(int *)(*a)->content < diviser)
+			ra(a);
 		else
 		{
-			if (*(int *)(*b)->content < sub_diviser)
+			if (*(int *)(*a)->content < sub_diviser)
 			{
-				pa(a, b);
-				ra(a);
+				pb(a, b);
+				if (*(int *)(*a)->content < diviser)
+				{
+					rr(a, b);
+					i++;
+				}
+				else
+					rb(b);
 			}
 			else
-				pa(a, b);
+				pb(a, b);
 		}
 		i++;
 	}
@@ -84,7 +96,13 @@ static void	split_a_stack_sorted_asc(t_list **a, t_list **b, int range)
 			if (*(int *)(*a)->content <= sub_diviser)
 			{
 				pb(a, b);
-				rb(b);
+				if (*(int *)(*a)->content > diviser)
+				{
+					rr(a, b);
+					i++;
+				}
+				else
+					rb(b);
 			}
 			else
 				pb(a, b);
@@ -111,7 +129,13 @@ static void	split_a_stack_sorted_des(t_list **a, t_list **b, int range)
 			if (*(int *)(*a)->content < sub_diviser)
 			{
 				pb(a, b);
-				rb(b);
+				if (*(int *)(*a)->content < sub_diviser)
+				{
+					rr(a, b);
+					i++;
+				}
+				else
+					rb(b);
 			}
 			else
 				pb(a, b);
