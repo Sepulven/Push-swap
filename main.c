@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/05/02 00:02:07 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/02 00:28:01 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,23 +97,11 @@ int	main(int argc, char *argv[])
 	a = converter(argc, argv);
 	if (!a)
 		return (write(2, "Error2\n", 7));
-	push_swap(&a, &b, argc - 1);
+	if (argc - 1 < 50)
+		sort_n_own_stack(&a, &b);
+	else
+		push_swap(&a, &b, argc - 1);
 	ft_lstclear(&a, free);
 	ft_lstclear(&b, free);
 	return (0);
 }
-	// split_stack_diviser(&a, &b, (t_stat){'a', 'c', 500});
-	// diviser_tips(&a, &b, (t_stat){'a', 'c', 125});
-	// diviser_tips(&a, &b, (t_stat){'a', 'c', 125});
-	// diviser_tips(&a, &b, (t_stat){'b', 'd', 62});
-	// i = 0;
-	// while (i++ < 63)
-	// 	rra(&a);
-	// diviser_tips(&a, &b, (t_stat){'b', 'd', 63});
-	// diviser_tips(&a, &b, (t_stat){'b', 'd', 62});
-	// i = 0;
-	// while (i++ < 63)
-	// 	rra(&a);
-	// diviser_tips(&a, &b, (t_stat){'b', 'd', 63});
-	// diviser_tips_sorted(&a, &b, (t_stat){'b', 'c', 250});
-	// sort_sub_stack(&a, &b, (t_sort_n){250, 250, 'b', 'g'});
