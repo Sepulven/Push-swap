@@ -6,7 +6,7 @@
 #    By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 14:06:30 by asepulve          #+#    #+#              #
-#    Updated: 2023/05/02 00:29:11 by asepulve         ###   ########.fr        #
+#    Updated: 2023/05/02 02:30:43 by asepulve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,7 @@ RM				=	rm -f
 
 OPERATIONS_SRC	=	a_utils.c ab_utils.c b_utils.c
 
-UTILS_SRC		=	costs.c find.c greatness.c map.c send.c tips_map.c\
-					utils.c validator.c checker.c
+UTILS_SRC		=	costs.c  greatness.c utils.c validator.c checker.c send.c
 
 SORT_SRC		=	tips.c utils_sort.c tips_sorted.c split_stack.c\
 					split_stack_sort.c sort_n_own_stack.c
@@ -67,7 +66,7 @@ vchecker:
 		
 v:
 		@make -s
-		@valgrind --verbose --leak-check=full --log-file=valgrind.log --show-leak-kinds=all ./push_swap
+		@valgrind --verbose --leak-check=full --log-file=valgrind.log --track-origins=yes --show-leak-kinds=all ./push_swap
 
 fclean:		clean
 			@make fclean -s -C libft

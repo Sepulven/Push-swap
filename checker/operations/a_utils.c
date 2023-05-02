@@ -6,11 +6,11 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:58:45 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/01 19:03:30 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:48:11 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operations.h"
+#include "./operations.h"
 
 void	sa(t_list **list)
 {
@@ -32,9 +32,12 @@ void	sa(t_list **list)
 
 void	pa(t_list **a, t_list **b)
 {
+	t_list	*node;
+
 	if (!*b)
 		return ;
-	ft_lstadd_front(a, pop_head(b));
+	node = pop_head(b);
+	ft_lstadd_front(a, node);
 	ft_printf("pa\n");
 }
 

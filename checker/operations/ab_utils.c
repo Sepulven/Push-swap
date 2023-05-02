@@ -6,11 +6,11 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:03:40 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/23 10:35:21 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:48:17 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operations.h"
+#include "./operations.h"
 
 t_list	*pop_head(t_list **list)
 {
@@ -62,7 +62,7 @@ void	ss(t_list **a, t_list **b)
 	ft_lstadd_front(a, node1);
 	ft_lstadd_front(a, node2);
 	node1 = pop_head(b);
-		if (!node1)
+	if (!node1)
 		return ;
 	node2 = pop_head(b);
 	if (!node2)

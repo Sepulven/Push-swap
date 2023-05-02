@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:39:35 by asepulve          #+#    #+#             */
-/*   Updated: 2023/05/01 00:35:47 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:54:15 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,6 @@ void	second_greatest_util_1(t_list **a, t_list **b, \
 	}
 }
 
-/*
-	! Recebiamos o size por referencia para podemrmos decrementalo.
-	! Atenção !
-*/
 void	second_greatest_case(t_list **a, t_list **b, \
 		t_sort_n *stat, int *r_a_tip)
 {

@@ -6,14 +6,13 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 13:37:20 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/11 14:50:22 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:45:43 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "checker.h"
 
-void handler_a(t_list	**a, t_list	**b, char *operation)
+void	handler_a(t_list	**a, t_list	**b, char *operation)
 {
 	if (!ft_strncmp(operation, "sa\n", 3))
 		sa(a);
@@ -25,7 +24,7 @@ void handler_a(t_list	**a, t_list	**b, char *operation)
 		rra(a);
 }
 
-void handler_b(t_list	**a, t_list	**b, char *operation)
+void	handler_b(t_list	**a, t_list	**b, char *operation)
 {
 	if (!ft_strncmp(operation, "sb\n", 3))
 		sb(b);
@@ -37,7 +36,7 @@ void handler_b(t_list	**a, t_list	**b, char *operation)
 		rrb(b);
 }
 
-void handler_ab(t_list	**a, t_list	**b, char *operation)
+void	handler_ab(t_list	**a, t_list	**b, char *operation)
 {
 	if (!ft_strncmp(operation, "rr\n", 3))
 		rr(a, b);
@@ -45,10 +44,10 @@ void handler_ab(t_list	**a, t_list	**b, char *operation)
 		rrr(a, b);
 }
 
-int checker(t_list	**a, t_list	**b)
+int	checker(t_list	**a, t_list	**b)
 {
-	char *line;
-	
+	char	*line;
+
 	(void)a;
 	(void)b;
 	line = get_next_line(0);
@@ -77,10 +76,10 @@ int	main(int argc, char *argv[])
 	a = NULL;
 	b = NULL;
 	if (!validator(argc, argv))
-		return (write(2, "Error1\n", 7));
+		return (write(2, "Error\n", 7));
 	a = converter(argc, argv);
 	if (!a)
-		return (write(2, "Error2\n", 7));
+		return (write(2, "Error\n", 7));
 	if (!checker(&a, &b))
 		return (write(2, "KO\n", 3));
 	else

@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 04:22:44 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/30 22:01:12 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/02 02:19:53 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int	check_limit(char *num)
 		return (0);
 	if (ft_strlen(num) <= 9)
 		return (1);
-	if (ft_strncmp("-2147483648", num, 12) <= 0)
+	if (ft_strlen(num) == 11 && ft_strncmp("-2147483648", num, 11) < 0)
 		return (0);
-	if (ft_strncmp("2147483647", num, 11) <= 0)
+	if (ft_strlen(num) == 10 && ft_strncmp("2147483647", num, 10) < 0)
 		return (0);
 	return (1);
 }

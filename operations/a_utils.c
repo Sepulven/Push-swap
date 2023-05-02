@@ -6,11 +6,11 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:58:45 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/23 10:50:32 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:48:11 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operations.h"
+#include "./operations.h"
 
 void	sa(t_list **list)
 {

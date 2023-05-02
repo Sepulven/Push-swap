@@ -6,11 +6,11 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 20:38:04 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/29 15:48:55 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/02 02:30:29 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "./utils.h"
 
 void	send_el_to(t_list **a, t_list **b, int pos, char stack)
 {
@@ -51,4 +51,3 @@ void	send_el_to_top(t_list **a, t_list **b, int pos, char stack)
 		pos--;
 	}
 }
-

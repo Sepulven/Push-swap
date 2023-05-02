@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 10:35:35 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/30 11:40:27 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/02 02:27:49 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ static void	sort_arr(int *buff, int range)
 
 	j = 0;
 	i = 0;
+	if (!buff)
+		return ;
 	while (i < range - 1)
 	{
 		j = 0;

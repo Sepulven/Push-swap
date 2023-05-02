@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:36:21 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/30 21:45:21 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:05:22 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,26 +50,24 @@ int	*create_sub_stack(t_list *lst, int l_side, int r_side)
 	return (stack);
 }
 
-/*
-	* Retorna o valor de tamanha grantitude.
-*/
-int	get_nth_greatness_value(t_list *lst, int l_side, int r_side, int greatness)
+static	void	err(char *msg)
+{
+	write(2, msg, ft_strlen(msg));
+	exit(EXIT_FAILURE);
+}
+
+int	get_nth_greatness_value(t_list *lst, int l_side, \
+	int r_side, int greatness)
 {
 	int	i;
 	int	j;
 	int	*sub_stack;
 
 	if (greatness > l_side + r_side || greatness < 0)
-	{
-		ft_printf("Greatness out of range.\n");
-		exit(EXIT_FAILURE);
-	}
+		err("Greatness out of range.\n");
 	sub_stack = create_sub_stack(lst, l_side, r_side);
 	if (!sub_stack)
-	{
-		ft_printf("We couldn't create the sub_stack");
-		exit(EXIT_FAILURE);
-	}
+		err("We couldn't create the sub_stack");
 	i = 0;
 	while (i < l_side + r_side)
 	{
@@ -87,10 +85,6 @@ int	get_nth_greatness_value(t_list *lst, int l_side, int r_side, int greatness)
 	return (j);
 }
 
-/*
-	* Nos basicamente queremos a posicao do el., recebemos a grandeza do elemento 
-	* dentro do do sub_stack e retornamos a posição dentro do stack principal.
-*/
 int	get_nth_greatness_pos(t_list *lst, int l_side, int r_side, int greatness)
 {
 	int	value;

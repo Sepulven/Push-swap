@@ -6,13 +6,12 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:40:55 by asepulve          #+#    #+#             */
-/*   Updated: 2023/05/01 00:31:17 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:54:36 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./utils.h"
 
-// * Basei se no algo. utilizado pelo send_el_to
 int	cost_send(int lst_size, int pos)
 {
 	if (lst_size < 0)
@@ -26,16 +25,6 @@ int	cost_send(int lst_size, int pos)
 		return ((lst_size - 1) - pos + 2);
 }
 
-/*
-	* Encontra o melhor el. para enviar baseando si no custo;
-	* Seria interessante caso no momento de enviar eu soubesse precisamente o que vai acontecer no stack se tivesse
-	*( Um destes precisa ter prioridade sobre o outro )
-	* A prioridade deve encontrar-se naquele que melhor meche a stack para pos mais favoravel do conseguinte.
-	* Pois há cenarios a onde o custo dos 3 podem ser iguais.
-	* Dado a situação a onde eu precisaria fazer mais comparações dentro da 
-	* função, farei uso desta ferramenta para um optimização mais tardia caso necessário.
-		* //  Darei a prioridade para o maior e o segundo maior.
-*/
 int	best_el(t_list *lst, int l_pos, int r_pos, t_sort_n *stat)
 {
 	int	pos[3];

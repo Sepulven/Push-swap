@@ -6,15 +6,14 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:45:31 by asepulve          #+#    #+#             */
-/*   Updated: 2023/04/01 18:55:54 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:01:00 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef OPERATIONS_H
-#define OPERATIONS_H 1
+# define OPERATIONS_H 1
 
-#include "../libft/libft.h"
+# include "../libft/libft.h"
 
 /*a_utils.c*/
 void	sa(t_list **list);
