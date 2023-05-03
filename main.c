@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:29:23 by asepulve          #+#    #+#             */
-/*   Updated: 2023/05/03 10:25:54 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/03 13:03:58 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	sort_sub_stack(t_list **a, t_list **b, t_sort_n stat)
 	while (r_a_tip-- > 0)
 		rra(a);
 }
+
 // ! Falta me verificar se o lado da esquerda calhou um número ímpar
 // * Acho que isto ja esta feito dado que 
 void	init_stacks_size(int *range, int size)
