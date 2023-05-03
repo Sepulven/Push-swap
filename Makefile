@@ -6,7 +6,7 @@
 #    By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 14:06:30 by asepulve          #+#    #+#              #
-#    Updated: 2023/05/02 02:30:43 by asepulve         ###   ########.fr        #
+#    Updated: 2023/05/03 21:13:24 by asepulve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ RM				=	rm -f
 
 OPERATIONS_SRC	=	a_utils.c ab_utils.c b_utils.c
 
-UTILS_SRC		=	costs.c  greatness.c utils.c validator.c checker.c send.c
+UTILS_SRC		=	costs.c  greatness.c validator.c checker.c send.c\
+					greatness_pos.c utils_1.c utils_2.c
 
 SORT_SRC		=	tips.c utils_sort.c tips_sorted.c split_stack.c\
 					split_stack_sort.c sort_n_own_stack.c
@@ -63,7 +64,10 @@ clean:
 vchecker:
 		@make -s
 		@valgrind --verbose --leak-check=full --show-leak-kinds=all ./push_swap $ARG 2>valgrind.txt
-		
+
+norm:	
+		@norminette -R CheckForbiddenSourceHeader $(SRC) checker/checker.h libft/libft.h operations/operations.h sort/sort.h utils/utils.h
+
 v:
 		@make -s
 		@valgrind --verbose --leak-check=full --log-file=valgrind.log --track-origins=yes --show-leak-kinds=all ./push_swap

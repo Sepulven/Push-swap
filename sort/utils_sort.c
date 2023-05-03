@@ -6,18 +6,20 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 10:35:35 by asepulve          #+#    #+#             */
-/*   Updated: 2023/05/02 02:27:49 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/02 14:19:44 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./sort.h"
 
-int	*populate_arr(t_list *lst, int range)
+int	*populate_arr(const t_list *lst, int range)
 {
 	int	*arr;
 	int	i;
 
 	i = 0;
+	if (!lst || range < 1)
+		return (NULL);
 	arr = malloc(range * sizeof (int));
 	if (!arr)
 		return (NULL);
@@ -47,10 +49,10 @@ static void	sort_arr(int *buff, int range)
 	i = 0;
 	if (!buff)
 		return ;
-	while (i < range - 1)
+	while (i < (range - 1))
 	{
 		j = 0;
-		while (j < range - 1)
+		while (j < (range - 1))
 		{
 			if (buff[j] > buff[j + 1])
 				ft_swap(&buff[j], &buff[j + 1]);
@@ -65,6 +67,10 @@ int	diviser_value(t_list *lst, int range)
 	int	*buff;
 	int	i;
 
+	i = 0;
+	buff = NULL;
+	if (range < 1)
+		exit(EXIT_FAILURE);
 	buff = populate_arr(lst, range);
 	if (!buff)
 		err(buff);
@@ -80,6 +86,8 @@ int	sub_diviser_value(t_list *lst, int range)
 	int	*buff;
 	int	i;
 
+	i = 0;
+	buff = NULL;
 	buff = populate_arr(lst, range);
 	if (!buff)
 		err(buff);

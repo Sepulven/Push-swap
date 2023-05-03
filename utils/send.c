@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 20:38:04 by asepulve          #+#    #+#             */
-/*   Updated: 2023/05/02 02:30:29 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/02 12:07:03 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	send_el_to_top(t_list **a, t_list **b, int pos, char stack)
 {
 	int	list_size;
 
+	list_size = 0;
 	if (stack == 'a')
 		list_size = ft_lstsize(*a);
 	else if (stack == 'b')

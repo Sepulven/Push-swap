@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 04:22:44 by asepulve          #+#    #+#             */
-/*   Updated: 2023/05/02 02:19:53 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/03 23:07:23 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_list	*converter(int argc, char *argv[])
 	void	*nbr;
 	int		i;
 
-	i = 1;
+	i = 0;
 	stack = NULL;
 	while (i < argc)
 	{
@@ -62,19 +62,22 @@ int	check_limit(char *num)
 
 int	validator(int argc, char *argv[])
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	*pointer;
 
-	i = 1;
-	if (argc < 2)
+	i = 0;
+	if (argc < 1)
 		return (0);
 	while (i < argc)
 	{
-		if (!ft_isnum(argv[i]) || !check_limit(argv[i]))
+		pointer = ft_strchr(argv[i], '-');
+		if (!ft_isnum(argv[i]) || !check_limit(argv[i])
+			|| (pointer && !ft_isdigit(pointer[1])))
 			return (0);
 		j = i + 1;
 		while (j < argc)
-		{
+		{	
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 				return (0);
 			j++;

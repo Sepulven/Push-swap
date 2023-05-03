@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 13:39:01 by asepulve          #+#    #+#             */
-/*   Updated: 2023/05/02 01:46:32 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:58:21 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include "operations/operations.h"
 
 /*checker_utils.c*/
-int	issorted(t_list **list);
-int	validator(int argc, char *argv[]);
+int		issorted(t_list **list);
+int		validator(int argc, char *argv[]);
 t_list	*converter(int argc, char *argv[]);
 
 #endif

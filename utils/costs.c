@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:40:55 by asepulve          #+#    #+#             */
-/*   Updated: 2023/05/02 01:54:36 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:43:16 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	best_el(t_list *lst, int l_pos, int r_pos, t_sort_n *stat)
 	lst_size = ft_lstsize(lst);
 	pos[0] = get_nth_greatness_pos(lst, l_pos, r_pos, l_pos + r_pos - 1);
 	pos[1] = get_nth_greatness_pos(lst, l_pos, r_pos, l_pos + r_pos);
-	pos[2] = get_nth_greatness_pos(lst, l_pos, r_pos, l_pos + r_pos);
+	pos[2] = get_nth_greatness_pos(lst, l_pos, r_pos, 1);
 	cost[0] = cost_send(lst_size, pos[0]) + 1;
 	cost[1] = cost_send(lst_size, pos[1]);
 	cost[2] = cost_send(lst_size, pos[1]);

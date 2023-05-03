@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoinf.c                                      :+:      :+:    :+:   */
+/*   greatness_pos.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 15:46:32 by asepulve          #+#    #+#             */
-/*   Updated: 2023/05/02 12:28:56 by asepulve         ###   ########.fr       */
+/*   Created: 2023/05/03 13:25:55 by asepulve          #+#    #+#             */
+/*   Updated: 2023/05/03 19:58:04 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./utils.h"
 
-/*
-	Free the parameters.
-*/
-char	*ft_strjoinf(char *s1, char *s2)
+int	get_nth_greatness_pos(t_list *lst, int l_side, int r_side, int greatness)
 {
-	size_t	i;
-	size_t	j;
-	char	*str;
+	int	value;
+	int	pos;
 
-	str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!str)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s1[j])
-		str[i++] = (char)s1[j++];
-	j = 0;
-	while (s2[j])
-		str[i++] = (char)s2[j++];
-	str[i] = '\0';
-	if (s1)
-		free(s1);
-	if (s2)
-		free(s2);
-	return (str);
+	value = get_nth_greatness_value(lst, l_side, r_side, greatness);
+	pos = 0;
+	while (lst)
+	{
+		if (value == *(int *)lst->content)
+			return (pos);
+		pos++;
+		lst = lst->next;
+	}
+	return (-1);
 }

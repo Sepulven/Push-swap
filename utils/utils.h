@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:53:10 by asepulve          #+#    #+#             */
-/*   Updated: 2023/05/02 02:09:07 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/03 21:51:47 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,21 @@ typedef struct s_sort_n
 	int		size;
 }	t_sort_n;
 
-/*utils.c*/
+/*utils_1.c*/
 void	ft_swap(int *x, int *y);
 void	print_list(t_list *head);
 int		issorted(t_list **list);
 
-/*greatness.c*/
+/*utils_2.c*/
+char	**normalize_argv(int argc, char **argv);
+size_t	matrix_size(char **matrix);
+void	free_matrix(char **array);
+
+/*greatness_pos.c*/
 int		get_nth_greatness_pos(t_list *lst, int l_side, \
 		int r_side, int greatness);
+
+/*greatness.c*/
 int		get_nth_greatness_value(t_list *lst, int l_side, int r_side, \
 		int greatness);
 int		*create_sub_stack(t_list *lst, int l_side, int r_side);

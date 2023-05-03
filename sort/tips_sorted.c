@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 10:32:51 by asepulve          #+#    #+#             */
-/*   Updated: 2023/05/01 00:56:39 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/02 12:31:44 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,15 @@ static void	diviser_tips_sorted_b_des(t_list **a, t_list **b, int range)
 			ra(a);
 		else
 		{
-			if (*(int *)(*a)->content < sub_diviser)
+			pb(a, b);
+			if ((*b) && *(int *)(*b)->content < sub_diviser && \
+				*(int *)(*a)->content < diviser)
 			{
-				pb(a, b);
-				if (*(int *)(*a)->content < diviser)
-				{
-					rr(a, b);
-					i++;
-				}
-				else
-					ra(a);
+				rr(a, b);
+				i++;
 			}
-			else
-				pb(a, b);
+			else if ((*b) && *(int *)(*b)->content < sub_diviser)
+				ra(a);
 		}
 		i++;
 	}
@@ -87,19 +83,15 @@ static void	diviser_tips_sorted_a_asc(t_list **a, t_list **b, int range)
 			rb(b);
 		else
 		{
-			if (*(int *)(*b)->content > sub_diviser)
+			pa(a, b);
+			if ((*a) && *(int *)(*a)->content > sub_diviser \
+			&&*(int *)(*b)->content > diviser)
 			{
-				pa(a, b);
-				if (*(int *)(*b)->content > diviser)
-				{
-					rr(a, b);
-					i++;
-				}
-				else
-					ra(a);
+				rr(a, b);
+				i++;
 			}
-			else
-				pa(a, b);
+			else if ((*a) && *(int *)(*a)->content)
+				ra(a);
 		}
 		i++;
 	}

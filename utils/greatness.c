@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:36:21 by asepulve          #+#    #+#             */
-/*   Updated: 2023/05/02 01:05:22 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:36:10 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	*create_sub_stack(t_list *lst, int l_side, int r_side)
 {
 	int	*stack;
 
+	if (l_side + r_side < 1)
+		return (NULL);
 	stack = malloc((l_side + r_side) * sizeof (int));
 	if (!stack)
 		return (NULL);
@@ -56,6 +58,13 @@ static	void	err(char *msg)
 	exit(EXIT_FAILURE);
 }
 
+static void	init_val(int *i, int *j, int **sub_stack)
+{
+	*sub_stack = NULL;
+	*i = 0;
+	*j = 0;
+}
+
 int	get_nth_greatness_value(t_list *lst, int l_side, \
 	int r_side, int greatness)
 {
@@ -63,12 +72,12 @@ int	get_nth_greatness_value(t_list *lst, int l_side, \
 	int	j;
 	int	*sub_stack;
 
+	init_val(&i, &j, &sub_stack);
 	if (greatness > l_side + r_side || greatness < 0)
 		err("Greatness out of range.\n");
 	sub_stack = create_sub_stack(lst, l_side, r_side);
 	if (!sub_stack)
 		err("We couldn't create the sub_stack");
-	i = 0;
 	while (i < l_side + r_side)
 	{
 		j = 0;
@@ -83,21 +92,4 @@ int	get_nth_greatness_value(t_list *lst, int l_side, \
 	j = sub_stack[greatness - 1];
 	free(sub_stack);
 	return (j);
-}
-
-int	get_nth_greatness_pos(t_list *lst, int l_side, int r_side, int greatness)
-{
-	int	value;
-	int	pos;
-
-	value = get_nth_greatness_value(lst, l_side, r_side, greatness);
-	pos = 0;
-	while (lst)
-	{
-		if (value == *(int *)lst->content)
-			return (pos);
-		pos++;
-		lst = lst->next;
-	}
-	return (-1);
 }
