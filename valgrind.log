@@ -1,183 +1,116 @@
-==42327== Memcheck, a memory error detector
-==42327== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==42327== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
-==42327== Command: ./push_swap 464 424 451 220 55 9 228 120 43 134 160 354 452 383 184 243 390 32 157 118 82 420 400 196 376 73 431 436 3 475 282 53 175 248 193 198 407 265 301 467 119 20 81 155 484 40 396 140 273 363 275 47 351 476 162 227 337 138 195 114 101 344 190 7 461 252 87 459 343 141 237 128 444 187 338 300 186 448 346 92 90 287 156 291 290 149 5 231 386 463 425 485 212 100 308 293 323 204 121 17 313 200 488 236 226 427 422 107 158 245 188 307 99 211 262 379 254 471 38 364 88 340 229 181 450 36 496 13 62 360 111 473 419 146 49 24 392 371 203 332 276 112 317 366 72 468 145 210 356 288 446 199 213 410 255 48 176 27 224 169 178 96 462 64 331 61 405 126 69 311 172 113 167 345 406 74 408 91 16 23 492 357 413 15 456 499 131 216 441 129 19 481 269 381 249 29 148 50 494 283 221 201 373 253 179 279 11 71 349 439 274 339 388 117 84 445 152 264 58 429 170 268 44 391 447 105 399 375 177 83 319 430 232 103 443 324 416 329 6 297 244 230 426 93 98 130 144 260 460 477 75 225 37 387 132 428 183 166 85 258 310 238 250 80 289 327 266 432 412 182 67 153 281 189 137 352 60 377 139 45 151 398 442 94 434 215 14 135 435 202 470 295 217 89 256 487 219 79 270 78 380 86 397 312 209 242 70 306 35 286 197 325 76 370 369 320 358 440 192 59 298 449 104 147 280 267 347 223 154 348 404 469 479 482 316 438 102 302 106 206 214 353 278 368 433 489 163 299 453 46 122 42 54 382 185 257 127 326 328 136 57 10 285 142 110 457 191 33 77 497 26 205 483 4 150 385 330 68 263 341 165 34 116 259 362 51 30 171 305 389 207 409 393 414 402 465 478 466 174 374 95 272 395 455 18 491 235 314 39 472 335 336 261 322 247 415 65 490 423 208 233 365 296 123 56 164 277 251 418 180 372 143 52 234 284 355 12 411 1 333 222 417 498 8 315 28 161 194 115 109 359 159 421 401 334 168 271 403 318 133 367 21 239 384 342 493 303 394 480 41 437 241 454 124 108 125 495 31 304 350 22 321 2 173 486 309 458 292 378 294 97 25 361 246 218 474 240 66 63
-==42327== Parent PID: 42326
-==42327== 
---42327-- 
---42327-- Valgrind options:
---42327--    --verbose
---42327--    --leak-check=full
---42327--    --log-file=valgrind.log
---42327--    --track-origins=yes
---42327--    --show-leak-kinds=all
---42327-- Contents of /proc/version:
---42327--   Linux version 5.19.0-41-generic (buildd@lcy02-amd64-045) (x86_64-linux-gnu-gcc (Ubuntu 11.3.0-1ubuntu1~22.04.1) 11.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #42~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Apr 18 17:40:00 UTC 2
---42327-- 
---42327-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
---42327-- Page sizes: currently 4096, max supported 4096
---42327-- Valgrind library directory: /usr/libexec/valgrind
---42327-- Reading syms from /home/asepulve/Desktop/Push-swap/push_swap
---42327-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
---42327--   Considering /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug ..
---42327--   .. build-id is valid
---42327-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
---42327--    object doesn't have a symbol table
---42327--    object doesn't have a dynamic symbol table
---42327-- Scheduler: using generic scheduler lock implementation.
---42327-- Reading suppressions file: /usr/libexec/valgrind/default.supp
-==42327== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-42327-by-asepulve-on-???
-==42327== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-42327-by-asepulve-on-???
-==42327== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-42327-by-asepulve-on-???
-==42327== 
-==42327== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==42327== don't want to do, unless you know exactly what you're doing,
-==42327== or are doing some strange experiment):
-==42327==   /usr/bin/vgdb --pid=42327 ...command...
-==42327== 
-==42327== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==42327==   /path/to/gdb ./push_swap
-==42327== and then give GDB the following command
-==42327==   target remote | /usr/bin/vgdb --pid=42327
-==42327== --pid is optional if only one valgrind process is running
-==42327== 
---42327-- REDIR: 0x402aa60 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcec2 (???)
---42327-- REDIR: 0x402a830 (ld-linux-x86-64.so.2:index) redirected to 0x580bcedc (???)
---42327-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
---42327--    object doesn't have a symbol table
---42327-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
---42327--    object doesn't have a symbol table
-==42327== WARNING: new redirection conflicts with existing -- ignoring it
---42327--     old: 0x0402aa60 (strlen              ) R-> (0000.0) 0x580bcec2 ???
---42327--     new: 0x0402aa60 (strlen              ) R-> (2007.0) 0x0484ee30 strlen
---42327-- REDIR: 0x4027240 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484fcd0 (strcmp)
---42327-- REDIR: 0x402afc0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4853840 (mempcpy)
---42327-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
---42327--   Considering /usr/lib/debug/.build-id/69/389d485a9793dbe873f0ea2c93e02efaa9aa3d.debug ..
---42327--   .. build-id is valid
-==42327== WARNING: new redirection conflicts with existing -- ignoring it
---42327--     old: 0x04911ce0 (memalign            ) R-> (1011.0) 0x0484e080 memalign
---42327--     new: 0x04911ce0 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
-==42327== WARNING: new redirection conflicts with existing -- ignoring it
---42327--     old: 0x04911ce0 (memalign            ) R-> (1011.0) 0x0484e080 memalign
---42327--     new: 0x04911ce0 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
-==42327== WARNING: new redirection conflicts with existing -- ignoring it
---42327--     old: 0x04911ce0 (memalign            ) R-> (1011.0) 0x0484e080 memalign
---42327--     new: 0x04911ce0 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
-==42327== WARNING: new redirection conflicts with existing -- ignoring it
---42327--     old: 0x04911ce0 (memalign            ) R-> (1011.0) 0x0484e080 memalign
---42327--     new: 0x04911ce0 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
---42327-- REDIR: 0x49147a0 (libc.so.6:strnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4914a60 (libc.so.6:strpbrk) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4914360 (libc.so.6:strcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4932d50 (libc.so.6:wcsnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4915750 (libc.so.6:memset) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x49315c0 (libc.so.6:wcslen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4915c90 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x49313f0 (libc.so.6:wcschr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x49142e0 (libc.so.6:index) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x49149e0 (libc.so.6:rindex) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4915620 (libc.so.6:memmove) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
-==42327== Preferring higher priority redirection:
---42327--     old: 0x04a0c940 (__memcpy_avx_unalign) R-> (2018.0) 0x04850f90 __memcpy_avx_unaligned_erms
---42327--     new: 0x04a0c940 (__memcpy_avx_unalign) R-> (2018.1) 0x04852880 memmove
---42327-- REDIR: 0x4931470 (libc.so.6:wcscmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4915a60 (libc.so.6:stpncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4931a30 (libc.so.6:wmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x49148b0 (libc.so.6:strncmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4915af0 (libc.so.6:strcasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x49144a0 (libc.so.6:strcspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x49314f0 (libc.so.6:wcscpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4914250 (libc.so.6:strcat) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4915be0 (libc.so.6:strncasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4915500 (libc.so.6:bcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x491d5f0 (libc.so.6:memrchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4917090 (libc.so.6:strchrnul) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4914410 (libc.so.6:strcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4915b90 (libc.so.6:strcasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4914720 (libc.so.6:strlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4914950 (libc.so.6:strncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x49159d0 (libc.so.6:stpcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4915470 (libc.so.6:memchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4914b80 (libc.so.6:strspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4915850 (libc.so.6:mempcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4915b40 (libc.so.6:strncasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4917000 (libc.so.6:rawmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---42327-- REDIR: 0x4a09790 (libc.so.6:__strrchr_avx2) redirected to 0x484e810 (rindex)
---42327-- REDIR: 0x4911120 (libc.so.6:malloc) redirected to 0x4848820 (malloc)
---42327-- REDIR: 0x4911460 (libc.so.6:free) redirected to 0x484b210 (free)
-==42327== Conditional jump or move depends on uninitialised value(s)
-==42327==    at 0x10ABD3: sort_arr (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10AC7E: diviser_value (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B787: split_a_stack_sorted_asc (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B9C0: split_stack_diviser (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C023: push_swap (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C230: main (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==  Uninitialised value was created by a heap allocation
-==42327==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==42327==    by 0x10AACC: populate_arr (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10AC56: diviser_value (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B787: split_a_stack_sorted_asc (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B9C0: split_stack_diviser (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C023: push_swap (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C230: main (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327== 
-==42327== Conditional jump or move depends on uninitialised value(s)
-==42327==    at 0x109D20: get_nth_greatness_value (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B7B3: split_a_stack_sorted_asc (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B9C0: split_stack_diviser (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C023: push_swap (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C230: main (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==  Uninitialised value was created by a heap allocation
-==42327==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==42327==    by 0x109C07: create_sub_stack (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x109CBE: get_nth_greatness_value (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B7B3: split_a_stack_sorted_asc (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B9C0: split_stack_diviser (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C023: push_swap (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C230: main (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327== 
-==42327== 
-==42327== HEAP SUMMARY:
-==42327==     in use at exit: 0 bytes in 0 blocks
-==42327==   total heap usage: 2,730 allocs, 2,730 frees, 1,831,988 bytes allocated
-==42327== 
-==42327== All heap blocks were freed -- no leaks are possible
-==42327== 
-==42327== ERROR SUMMARY: 499 errors from 2 contexts (suppressed: 0 from 0)
-==42327== 
-==42327== 249 errors in context 1 of 2:
-==42327== Conditional jump or move depends on uninitialised value(s)
-==42327==    at 0x10ABD3: sort_arr (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10AC7E: diviser_value (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B787: split_a_stack_sorted_asc (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B9C0: split_stack_diviser (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C023: push_swap (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C230: main (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==  Uninitialised value was created by a heap allocation
-==42327==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==42327==    by 0x10AACC: populate_arr (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10AC56: diviser_value (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B787: split_a_stack_sorted_asc (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B9C0: split_stack_diviser (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C023: push_swap (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C230: main (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327== 
-==42327== 
-==42327== 250 errors in context 2 of 2:
-==42327== Conditional jump or move depends on uninitialised value(s)
-==42327==    at 0x109D20: get_nth_greatness_value (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B7B3: split_a_stack_sorted_asc (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B9C0: split_stack_diviser (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C023: push_swap (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C230: main (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==  Uninitialised value was created by a heap allocation
-==42327==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==42327==    by 0x109C07: create_sub_stack (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x109CBE: get_nth_greatness_value (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B7B3: split_a_stack_sorted_asc (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10B9C0: split_stack_diviser (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C023: push_swap (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327==    by 0x10C230: main (in /home/asepulve/Desktop/Push-swap/push_swap)
-==42327== 
-==42327== ERROR SUMMARY: 499 errors from 2 contexts (suppressed: 0 from 0)
+==17124== Memcheck, a memory error detector
+==17124== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==17124== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
+==17124== Command: ./push_swap 26 450 261 350 169 183 231 129 297 128 150 238 24 44 317 206 343 366 65 359 257 230 433 456 30 374 116 35 55 125 440 493 484 294 114 399 233 177 478 495 270 306 6 446 249 174 127 329 200 336 474 330 256 465 400 103 23 191 29 376 298 189 363 482 402 20 198 419 32 56 136 219 211 107 132 263 278 75 176 436 339 409 466 441 182 91 442 487 67 325 194 47 215 479 379 288 97 146 468 184 15 254 260 223 106 432 439 423 201 422 164 489 272 340 96 322 364 335 454 119 83 443 245 417 407 76 421 190 300 386 19 193 289 57 216 161 87 382 93 208 246 69 496 280 122 166 414 341 311 486 403 54 367 447 203 86 425 427 82 111 368 147 104 460 167 337 33 469 385 37 248 273 426 162 5 185 175 406 16 345 483 255 212 124 17 428 262 228 292 130 304 112 39 239 332 209 480 362 285 62 281 135 499 430 8 485 105 463 98 287 252 305 390 144 247 235 475 187 492 328 293 171 90 45 464 221 351 53 50 282 10 457 92 434 470 334 291 321 27 358 227 393 397 316 384 387 324 155 85 309 327 356 59 28 137 472 213 156 64 110 375 353 461 170 134 22 181 258 226 207 488 404 383 497 140 49 392 455 268 352 46 412 78 299 142 491 372 113 220 102 271 225 34 153 41 94 145 473 401 435 308 346 391 202 133 444 18 141 490 224 214 138 302 438 370 115 195 88 196 186 68 240 269 462 416 79 477 476 448 25 348 315 373 229 158 244 157 265 199 411 118 60 154 437 279 481 217 396 312 296 389 301 234 275 445 380 173 319 126 160 108 471 179 431 43 180 52 36 418 331 349 148 31 320 459 58 498 284 333 494 381 394 357 66 222 250 139 149 123 12 398 4 11 131 63 51 197 178 452 120 276 236 151 143 290 204 395 188 344 242 314 429 274 371 303 159 410 237 286 77 109 241 415 168 307 378 71 80 264 2 14 354 101 453 310 420 48 388 42 295 365 192 251 99 449 218 21 313 360 1 152 61 210 338 347 405 72 165 342 266 326 323 95 361 74 13 38 172 9 467 100 318 413 424 283 81 70 3 243 259 253 84 377 458 7 117 205 277 451 408 163 89 40 267 355 369 121 232 73
+==17124== Parent PID: 17123
+==17124== 
+--17124-- 
+--17124-- Valgrind options:
+--17124--    --verbose
+--17124--    --leak-check=full
+--17124--    --log-file=valgrind.log
+--17124--    --track-origins=yes
+--17124--    --show-leak-kinds=all
+--17124-- Contents of /proc/version:
+--17124--   Linux version 5.19.0-41-generic (buildd@lcy02-amd64-045) (x86_64-linux-gnu-gcc (Ubuntu 11.3.0-1ubuntu1~22.04.1) 11.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #42~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Apr 18 17:40:00 UTC 2
+--17124-- 
+--17124-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--17124-- Page sizes: currently 4096, max supported 4096
+--17124-- Valgrind library directory: /usr/libexec/valgrind
+--17124-- Reading syms from /home/asepulve/Desktop/Push-swap/push_swap
+--17124-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--17124--   Considering /usr/lib/debug/.build-id/61/ef896a699bb1c2e4e231642b2e1688b2f1a61e.debug ..
+--17124--   .. build-id is valid
+--17124-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--17124--    object doesn't have a symbol table
+--17124--    object doesn't have a dynamic symbol table
+--17124-- Scheduler: using generic scheduler lock implementation.
+--17124-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==17124== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-17124-by-asepulve-on-???
+==17124== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-17124-by-asepulve-on-???
+==17124== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-17124-by-asepulve-on-???
+==17124== 
+==17124== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==17124== don't want to do, unless you know exactly what you're doing,
+==17124== or are doing some strange experiment):
+==17124==   /usr/bin/vgdb --pid=17124 ...command...
+==17124== 
+==17124== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==17124==   /path/to/gdb ./push_swap
+==17124== and then give GDB the following command
+==17124==   target remote | /usr/bin/vgdb --pid=17124
+==17124== --pid is optional if only one valgrind process is running
+==17124== 
+--17124-- REDIR: 0x402aa60 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcec2 (???)
+--17124-- REDIR: 0x402a830 (ld-linux-x86-64.so.2:index) redirected to 0x580bcedc (???)
+--17124-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--17124--    object doesn't have a symbol table
+--17124-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+--17124--    object doesn't have a symbol table
+==17124== WARNING: new redirection conflicts with existing -- ignoring it
+--17124--     old: 0x0402aa60 (strlen              ) R-> (0000.0) 0x580bcec2 ???
+--17124--     new: 0x0402aa60 (strlen              ) R-> (2007.0) 0x0484ee30 strlen
+--17124-- REDIR: 0x4027240 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484fcd0 (strcmp)
+--17124-- REDIR: 0x402afc0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4853840 (mempcpy)
+--17124-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--17124--   Considering /usr/lib/debug/.build-id/69/389d485a9793dbe873f0ea2c93e02efaa9aa3d.debug ..
+--17124--   .. build-id is valid
+==17124== WARNING: new redirection conflicts with existing -- ignoring it
+--17124--     old: 0x04911ce0 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--17124--     new: 0x04911ce0 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==17124== WARNING: new redirection conflicts with existing -- ignoring it
+--17124--     old: 0x04911ce0 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--17124--     new: 0x04911ce0 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+==17124== WARNING: new redirection conflicts with existing -- ignoring it
+--17124--     old: 0x04911ce0 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--17124--     new: 0x04911ce0 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==17124== WARNING: new redirection conflicts with existing -- ignoring it
+--17124--     old: 0x04911ce0 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--17124--     new: 0x04911ce0 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+--17124-- REDIR: 0x49147a0 (libc.so.6:strnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4914a60 (libc.so.6:strpbrk) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4914360 (libc.so.6:strcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4932d50 (libc.so.6:wcsnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4915750 (libc.so.6:memset) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x49315c0 (libc.so.6:wcslen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4915c90 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x49313f0 (libc.so.6:wcschr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x49142e0 (libc.so.6:index) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x49149e0 (libc.so.6:rindex) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4915620 (libc.so.6:memmove) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+==17124== Preferring higher priority redirection:
+--17124--     old: 0x04a0c940 (__memcpy_avx_unalign) R-> (2018.0) 0x04850f90 __memcpy_avx_unaligned_erms
+--17124--     new: 0x04a0c940 (__memcpy_avx_unalign) R-> (2018.1) 0x04852880 memmove
+--17124-- REDIR: 0x4931470 (libc.so.6:wcscmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4915a60 (libc.so.6:stpncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4931a30 (libc.so.6:wmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x49148b0 (libc.so.6:strncmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4915af0 (libc.so.6:strcasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x49144a0 (libc.so.6:strcspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x49314f0 (libc.so.6:wcscpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4914250 (libc.so.6:strcat) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4915be0 (libc.so.6:strncasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4915500 (libc.so.6:bcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x491d5f0 (libc.so.6:memrchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4917090 (libc.so.6:strchrnul) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4914410 (libc.so.6:strcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4915b90 (libc.so.6:strcasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4914720 (libc.so.6:strlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4914950 (libc.so.6:strncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x49159d0 (libc.so.6:stpcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4915470 (libc.so.6:memchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4914b80 (libc.so.6:strspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4915850 (libc.so.6:mempcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4915b40 (libc.so.6:strncasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4917000 (libc.so.6:rawmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--17124-- REDIR: 0x4a09790 (libc.so.6:__strrchr_avx2) redirected to 0x484e810 (rindex)
+--17124-- REDIR: 0x4911120 (libc.so.6:malloc) redirected to 0x4848820 (malloc)
+--17124-- REDIR: 0x4911460 (libc.so.6:free) redirected to 0x484b210 (free)
+==17124== 
+==17124== HEAP SUMMARY:
+==17124==     in use at exit: 0 bytes in 0 blocks
+==17124==   total heap usage: 2,827 allocs, 2,827 frees, 1,866,292 bytes allocated
+==17124== 
+==17124== All heap blocks were freed -- no leaks are possible
+==17124== 
+==17124== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
